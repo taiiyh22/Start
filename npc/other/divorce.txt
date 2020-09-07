@@ -27,171 +27,171 @@
 nif_in,190,112,5	script	Deviruchi#divorce	738,{
 	mes "[Deviruchi]";
 //	if (wedding_sign == 0) {
-//		mes "Heh heh...";
-//		mes "Look at that depressed face.";
-//		mes "You must be feeling very lonely.";
-//		mes "But that's something everyone";
-//		mes "has to deal with.";
+//mes "ฮี้ ฮี้...";
+//		mes "ดูใบหน้าหดหู่.";
+//		mes "เจ้าคงรู้สึกเหงา.";
+//		mes "แต่ไม่ใช่ว่าทุกคน";
+//		mes "ต้องรู้สึกเหมือนเจ้า.";
 //		next;
 //		mes "[Deviruchi]";
-//		mes "If you feel that lonely,";
-//		mes "how about raising a Pet?";
-//		mes "I hear that my kind is very";
-//		mes "popular nowadays, heh heh~";
+//		mes "ถ้าเจ้าเหงา,";
+//		mes "ทำไมไม่ลองเลี้ยงสัตว์ละ ?";
+//		mes "ข้าได้ยินมาว่า";
+//		mes "มันเป็นที่นิยมสุดๆ, ฮี้ ฮี้~";
 //		close;
 //	}
 //	else 
   	if (!getpartnerid()) {
-		mes "Bwah hah hah~!";
-		mes "That look in your eyes~!";
+		mes "วะ ฮา ฮ่า~!";
+		mes "มองเข้าไปในนัยต์ตาของเจ้า~!";
 		if (Sex == SEX_MALE) {
-			mes "Those are definitely the eyes";
-			mes "of a lonely male bachelor.";
-			mes "I'm almost 100 percent sure";
-			mes "you got ditched at the altar.";
+mes "มันเป็นสายตาที่";
+			mes "ผู้ชายเหงาเท่านั้นที่ปล่อยออกมาได้.";
+			mes "ข้ามั่นใจ 100 เปอเซ็นต์เลย";
+			mes "ว่าเจ้าได้ถูกทอดทิ้ง.";
 		}
 		else {
-			mes "They're just filled with the";
-			mes "pain of an old maid--!";
-			mes "Couldn't rope some poor guy";
-			mes "into marriage, huh?";
+			mes "พวกเขาเต็มไปด้วย";
+			mes "ความเจ็บปวดจากคนรักเก่า--!";
+			mes "เป็นสิ่งที่น่าผิดหวัง";
+			mes "จากการแต่งงาน, หือ ?";
 		}
 		next;
 		mes "[Deviruchi]";
-		mes "HHAHAHAHA~!";
-		mes "Oooooh...Hee hee~";
-		mes "I'd be more sympathetic if,";
-		mes "you know, I weren't a creature";
-		mes "of darkness.";
+		mes "5555555~!";
+		mes "อูวววว์...ฮี้ ฮี้~";
+		mes "ข้าจะเห็นอกเห็นใจ ถ้า,";
+		mes "เจ้ารู้, ว่าข้าไม่ใช่ปิศาจ";
+		mes "จากความมืด.";
 		close;
 	}
-	mes "You look awfully depressed...";
-	mes "Lucky for you, I could care";
-	mes "less about happy people...";
-	mes "It's the humans in despair";
-	mes "that I take an interest in.";
-	mes "Hahahahahahah~!";
+	mes "เจ้าดูเศร้ามาก...";
+	mes "โชคดีของเจ้า, ข้าดูแล";
+	mes "เกี่ยวกับความสุขของผู้คน...";
+	mes "ความสิ้นหวังของมนุษย์";
+	mes "มันทำให้ข้าสนใจ.";
+	mes "5555555~!";
 	next;
 	mes "[Deviruchi]";
-	mes "I sense that you carry a";
-	mes "tiresome burden...";
-	mes "If I'm not wrong, you're";
+	mes "ข้ารู้สึกว่าเจ้าแบก";
+	mes "ความเบื่อหน่ายไว้...";
+	mes "ถ้าข้าเดาไม่ผิด, เจ้าเป็น";
 	if (Sex == SEX_MALE)
-		mes "a married man, aren't you?";
+		mes "สามี, ใช่ไหม ?";
 	else
-		mes "a married woman, aren't you?";
+		mes "ภรรยา, ใช่ไหม ?";
 	next;
 	mes "[Deviruchi]";
-	mes "Let me ask you one thing.";
-	mes "Are you happy to be married?";
-	mes "Forget about responsibilities,";
-	mes "romance and all that other junk";
-	mes "for now.";
+	mes "ให้ข้าถามเจ้าสักเรื่องหนึ่ง.";
+	mes "เจ้ามีความสุขจากการแต่งงานไหม ?";
+	mes "ลืมความรับผิดชอบ,";
+	mes "ความโรแมนติก และสิ่งไร้สาระอื่นๆ";
+	mes "สำหรับตอนนี้.";
 	next;
 	mes "[Deviruchi]";
-	mes "I mean, can just one single";
-	mes "person really bring you all that";
-	mes "happiness? I know all about how";
-	mes "special weddings and the magic";
-	mes "of love is supposed to be, but...";
+	mes "ข้าหมายถึง, กลับมาโสด";
+	mes "ผู้คนจะได้กลับมา";
+	mes "มีความสุข ? ข้ารู้ว่า";
+	mes "การแต่งงานเป็นสิ่งที่พิเศษและมันเป็น";
+	mes "เวทมนต์แห่งความรัก, แต่...";
 	next;
 	mes "[Deviruchi]";
-	mes "At the end of the day, you and";
-	mes "your partner fight, and you feel";
-	mes "totally totally miserable.";
+	mes "สุดท้ายแล้ว, เจ้าและ";
+	mes "คู่รักของเจ้า, ไม่ลงรอยกัน";
+	mes "ทั้งหมดนั้น.";
 	if (Sex == SEX_MALE)
-		mes "...all because of HER.";
+		mes "...มันเป็นเพราะเธอ.";
 	else
-		mes "...all because of HIM.";
+		mes "...มันเป็นเพราะเขา.";
 	next;
 	mes "[Deviruchi]";
-	mes "Yes, it's your destiny to find me";
-	mes "here. We all make mistakes...";
-	mes "Even if you promised everlasting";
-	mes "love, even if you made a vow...";
-	mes "I can free you from that prison";
-	mes "of matrimony.";
+	mes "ใช่, โชคชะตาทำให้เจ้าเจอข้า";
+	mes "พวกเราล้วนแต่ทำผิด...";
+	mes "ถ้าเจ้าสูญสิ้นใน";
+	mes "ความรัก, แม้ว่าเจ้าจะทำตามคำปฏิญาณ...";
+	mes "ข้าสามารถปลดปล่อยให้เจ้าเป็นอิสระ";
+	mes "จากการแต่งงานได้.";
 	next;
 	mes "[Deviruchi]";
-	mes "It's simple if you look at";
-	mes "marriage as a contract...a";
-	mes "contract that ends with 'till";
-	mes "death do we part.' Here in";
-	mes "Niflheim, it's easy to use";
-	mes "that little loophole...";
+	mes "มันง่ายมากถ้าเจ้าเห็น";
+	mes "สัญญาของการแต่งงาน...";
+	mes "สัญญาจะสิ้นสุดลง";
+	mes "ถ้าคู่รักตาย.ที่นี้";
+	mes "Nifleheim, มันทำได้ง่ายมาก";
+	mes "ในสถานที่นี้...";
 	next;
 	mes "[Deviruchi]";
-	mes "*whispers*";
-	mes "^555555It's not like you're breaking^000000";
+	mes "*กระซิบ*";
+	mes "^555555ไม่ทำให้เจ้าเป็นคนผิดสัญญาหรอก^000000";
 	if (Sex == SEX_MALE) {
-		mes "^555555any promises, and it's not";
-		mes "like your wife will care if she";
-		mes "doesn't know... Don't you";
-		mes "want to be freed from her?^000000";
+		mes "^555555มีสัญญา, หรือไม่มี";
+		mes "เหมือนภรรยาของเจ้าจะแคร์ ถ้าเธอ";
+		mes "ไม่รู้... ทำไมเจ้า";
+		mes "ไม่ลองเป็นอิสระจากเธอดูละ ?^000000";
 	}
 	else {
-		mes "^555555any promises. Hell, your husband";
-		mes "doesn't even have to know";
-		mes "about it... you deserve";
-		mes "real happiness, right?^000000";
+		mes "^555555สัญญารึ. หึ, สามีของเจ้า";
+		mes "ไม่มีทางรู้";
+		mes "เกี่ยวกับมันหรอก... เจ้าไม่อยาก";
+		mes "มีความสุขจริงๆ, หรอ ?^000000";
 	}
 	next;
 	mes "[Deviruchi]";
-	mes "You can have a brand new love";
-	mes "with a better person...";
-	mes "Wouldn't that be great...?";
-	mes "I can help you if you want...";
-	mes "I can make all of this happen!";
+	mes "เจ้าสามารถมีรักครั้งใหม่ได้";
+	mes "กับคนที่ดีกว่า...";
+	mes "ไม่เลือกสิ่งที่ดีที่สุดละ...?";
+	mes "ข้าช่วยเจ้าได้ถ้าเจ้าต้องการ...";
+	mes "ข้าทำให้มันเป็นจริงได้!";
 	next;
-	if (select("No thanks, I am happy.:Yes, please do.") == 1) {
+	if (select("ไม่อ่ะ, ข้ามีความสุขดี.:หย่าเลย, ขอความกรุณาด้วย.") == 1) {
 		mes "[Deviruchi]";
-		mes "Hmpf~! You must still be";
-		mes "fascinated with the silly";
-		mes "notion of eternal love. Well,";
-		mes "if you think you're happy,";
-		mes "then I'll have nothing";
-		mes "to do with you--!";
+		mes "หืม~! เจ้ายังคง";
+		mes "เชื่อในความรักโง่ๆ";
+		mes "ของเจ้าอยู่อีกหรอ. เยี่ยม,";
+		mes "ถ้าเจ้าคิดว่ามีความสุขดี,";
+		mes "งั้นข้าก็ไม่มีอะไร";
+		mes "ที่จะเสวนากับเจ้า--!";
 		close2;
 		warp "niflheim",169,162;
 		end;
 	}
 	mes "[Deviruchi]";
-	mes "Good, good...";
-	mes "Now all you have to do is give";
-	mes "me what I want in exchange...";
-	mes "Just 2,500,000 zeny and...*cough!*";
-	mes "^666666An eensy piece of your soul.^000000";
+	mes "ดี, ดี...";
+	mes "ตอนนี้เจ้าต้องมี";
+	mes "สิ่งแลกเปลี่ยนกับข้าคือ...";
+	mes "เงิน 2,500,000 zeny และ...*ไอ คุ คุ!*";
+	mes "^666666เศษวิญญาณของเจ้าเล็กน้อย.^000000";
 	next;
 	mes "[Deviruchi]";
-	mes "After that, it's the carefree";
-	mes "single's life. All you have to";
-	mes "do is say the word...";
+	mes "หลังจากนั้น, มันจะเป็นอิสระภาพ";
+	mes "ชีวิตคนโสด. ทั้งหมดนั้น";
+	mes "คือสิ่งที่ข้าอยากบอก...";
 	next;
-	if (select("...Give me some time to think.:Any price will do, give me a divorce right now!") == 1) {
+	if (select("...ให้เวลาข้าคิดก่อน.:เศษอะไรนะ, โปรดหย่าให้ข้าที!") == 1) {
 		mes "[Deviruchi]";
-		mes "I understand. But if you think";
-		mes "about anything, think about";
+		mes "ข้าเข้าใจ. แต่ถ้าเจ้าคิด";
+		mes "แล้วคิดอีก, ข้าว่า...";
 		if (Sex == SEX_MALE) {
-			mes "your wife's nagging, and";
-			mes "how great it would be to";
-			mes "finally free yourself of the";
-			mes "old ball and chain~";
+			mes "ภรรยาขี้บ่นของเจ้า, คงได้";
+			mes "หาวิธีจับเจ้า";
+			mes "ใส่โซ่ตรวน";
+			mes "ขังอิสระภาพของเจ้าแน่ๆ~";
 		}
 		else {
-			mes "how horrible your husband is,";
-			mes "and what a relief it would";
-			mes "be to be rid of that crumbum~";
+			mes "สามีที่น่ากลัวของเจ้า,";
+			mes "คงกำลังใช้ชีวิต";
+			mes "อย่างเสเพลอยู่แน่ๆ~";
 		}
 		close;
 	}
 	mes "[Deviruchi]";
 	if (Zeny > 2499999) {
-		mes "Excellent choice~";
-		mes "Let's get started right";
-		mes "away! This may take some";
-		mes "time, but it's better than";
-		mes "being hopelessly married";
-		mes "^FF0000for the rest of your life.^000000";
+		mes "เลือกได้เยี่ยม~";
+		mes "มาเริ่มกันเลยดีกว่า";
+		mes "ในบางครั้งบางเวลา";
+		mes "สิ่งที่ดีที่สุด";
+		mes "ของการแต่งงานที่ไม่สมหวัง";
+		mes "^FF0000คือการพักผ่อนอย่างสงบ.^000000";
 		next;
 		specialeffect EF_MAGICROD;
 		specialeffect2 EF_DEVIL;
@@ -200,18 +200,18 @@ nif_in,190,112,5	script	Deviruchi#divorce	738,{
 		percentheal -100,-100;
 		divorce;
 		mes "[Deviruchi]";
-		mes "Bwahhahahaha~!";
-		mes "Now you're free~!";
-		mes "Don't you feel so much";
-		mes "better now as a single?";
-		mes "Ah, bachelorhood...";
+		mes "วะ ฮา ฮ่า~!";
+		mes "ตอนนี้เจ้าเป็นอิสระแล้ว~!";
+		mes "แต่เจ้าคงไม่รู้สึกอะไรอีกต่อไป";
+		mes "โชคดีที่ตอนนี้เจ้าเป็นโสด ?";
+		mes "อ่า, โสดอย่างโดดเดี่ยว...";
 		close;
 	}
-	mes "Hmmm...I did tell you to bring";
-	mes "2,500,000 zeny, right?";
-	mes "No one else in this world can";
-	mes "offer this kind of freedom...";
-	mes "You can't put a price on";
-	mes "peace of mind, can you?";
+	mes "หืมมม...ข้าบอกให้เจ้านำเงิน";
+	mes "2,500,000 zeny มา, ใช่ไหม ?";
+	mes "ไม่มีใครสามารถ";
+	mes "ทำให้เจ้าฟรีๆหรอกน่ะ...";
+	mes "เจ้าต้องมีสิ่งแลกเปลี่ยนด้วย";
+	mes "ยื่นหมูยื่นแมว, เข้าใจ๊ ?";
 	close;
 }

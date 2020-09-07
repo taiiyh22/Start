@@ -1,0 +1,31 @@
+-	shop	burnCardShop	-1,501:1000000
+
+-	script	BurnCard	-1,{
+	mes "ต้องการย่อยการ์ดหรือไม่? \n1 ใบได้ 1 Cash";
+	next;
+	menu "ย่อย",-;
+	callshop "burnCardShop",2;
+	npcshopattach "burnCardShop";
+	end;
+
+OnSellItem:
+	for (.@i = 0; .@i < getarraysize(@sold_nameid); .@i++){
+		if (@sold_quantity[.@i] <= 0)
+		end;
+		if(getiteminfo(@sold_nameid[.@i],2) == 6 && compare(getitemname(@sold_nameid[.@i]),"Card") ){
+			delitem @sold_nameid[.@i],@sold_quantity[.@i];
+			.@burn_amount += @sold_quantity[.@i];
+		}
+	}
+	deletearray @sold_quantity,getarraysize(@sold_quantity);
+	deletearray @sold_nameid,getarraysize(@sold_nameid);
+	callfunc("AddCash",.@burn_amount);
+	mes "คุณได้รับ " + .@burn_amount + " Cash";
+	specialeffect2 49;
+	close;
+	
+OnInit:
+	waitingroom "ย่อยการ์ด",0;
+	end;
+}
+prontera,163,167,3	duplicate(BurnCard)	 ย่อยการ์ด	418

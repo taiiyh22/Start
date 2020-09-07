@@ -1,0 +1,6 @@
+prontera,136,171,5	script	PvP	10211,{
+	menu "เข้า",-;
+	warp "pvp_y_8-5",0,0;
+	announce strcharinfo(0) + " เข้าห้อง PvP !!",bc_all,0x2fe24a;
+	end;
+}

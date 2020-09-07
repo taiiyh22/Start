@@ -608,7 +608,57 @@ Shadow:
       EventNormalChance: 20
       EventEnrichedChance: 50
     - Level: 10
+      NormalChance: 15
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 11
+      NormalChance: 15
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 12
+      NormalChance: 12
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 13
+      NormalChance: 12
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 14
       NormalChance: 9
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 15
+      NormalChance: 9
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 16
+      NormalChance: 7
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 17
+      NormalChance: 7
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 18
+      NormalChance: 5
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 19
+      NormalChance: 5
+      EnrichedChance: 20
+      EventNormalChance: 9
+      EventEnrichedChance: 35
+    - Level: 20
+      NormalChance: 3
       EnrichedChance: 20
       EventNormalChance: 9
       EventEnrichedChance: 35

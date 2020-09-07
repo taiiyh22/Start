@@ -1,0 +1,15 @@
+prontera,140,144,5	script	 #Storage	10005,{
+	specialeffect2 65;
+	if(getcharid(2) > 0)
+	menu "เปิดคลังปกติ",L_NM,"เปิดคลังกิลด์",L_GS;
+	else
+	menu "เปิดคลังปกติ",L_NM;
+
+	L_NM:
+	openstorage;
+	end;
+	
+	L_GS:
+	guildopenstorage();
+	end;
+}

@@ -1,0 +1,5 @@
+-	script	LoginController	-1,{
+OnPCLoginEvent:
+	setfont 0;
+	end;
+}
