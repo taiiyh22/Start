@@ -58,13 +58,7 @@ function	script	refinemain	{
 		emotion ET_FRET;
 		close;
 	}
-	//Check if the item is refinable...
-	if(!getequipisenableref(.@part)) {
-		mes "["+ .@npc_name$ +"]";
-		mes "เกิดข้อผิดพลาด #3";
-		close;
-	}
-	//Check to see if the items is already +10
+	//Check to see if the items is already +20
 	if(getequiprefinerycnt(.@part) >= 20) {
 		mes "["+ .@npc_name$ +"]";
 		mes "อุปกรณ์ชิ้นนี้ ตีบวกมาถึงขั้นสูงสุดแล้ว";
