@@ -1,9 +1,9 @@
-1@air1,0,0	monster	Beholder",3177,15,60000,300000
-1@air1,0,0	monster	Rotar Zairo",3175,15,60000,300000
-1@air1,0,0	monster	Gremlins",3176,15,60000,300000
-1@air1,0,0	monster	Acidus",3179,15,60000,300000
+1@air1,0,0	monster	Beholder	3177,15,60000,300000
+1@air1,0,0	monster	Rotar Zairo	3175,15,60000,300000
+1@air1,0,0	monster	Gremlins	3176,15,60000,300000
+1@air1,0,0	monster	Acidus	3179,15,60000,300000
 
-1@air2,0,0	monster	Beholder",3177,15,60000,300000
-1@air2,0,0	monster	Acidus",3178,15,60000,300000
-1@air2,0,0	monster	Wywern",3180,1,60000,300000
-1@air2,0,0	monster	Out of control Captain",3181,60000,300000
+1@air2,0,0	monster	Beholder	3177,15,60000,300000
+1@air2,0,0	monster	Acidus	3178,15,60000,300000
+1@air2,0,0	monster	Wywern	3180,1,60000,300000
+1@air2,0,0	monster	Out of control Captain	3181,1,60000,300000
