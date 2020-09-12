@@ -1,9 +1,9 @@
 prontera,150,191,5	script	คลังเก็บของ	10005,{
 	specialeffect2 65;
 	if(getcharid(2) > 0)
-	menu "เปิดคลังปกติ",L_Storage,"เปิดคลังกิลด์",L_Guild_Storage;
+	menu "เปิดคลังปกติ",L_Storage,"เปิดคลังกิลด์",L_Guild_Storage,"เปิดคลัง Cash",L_Cash_Storage;
 	else
-	menu "เปิดคลังปกติ",L_Storage;
+	menu "เปิดคลังปกติ",L_Storage,"เปิดคลัง Cash",L_Cash_Storage;
 
 	L_Storage:
 	openstorage;
@@ -13,7 +13,36 @@ prontera,150,191,5	script	คลังเก็บของ	10005,{
 	guildopenstorage();
 	end;
 	
-/*OnInit:
-	waitingroom "คลังเก็บของ",0;
-	end;*/
+	L_Cash_Storage:
+	if(!#is_cash_storage){
+		mes "คุณยังไม่ได้ซื้อคลังเก็บของ Cash";
+		mes "ต้องการซื้อในราคา " + .cash_price + " Cash หรือไม่?";
+		mes "*ซื้อรอบเดียว ใช้ได้ทั้ง ID";
+		next;
+		menu "ยกเลิก",L_Cancel,"ซื้อ",L_Buy_Cash_Storage;
+	}
+	else
+	goto L_Use_Cash_Storage;
+	
+	L_Cancel:
+	end;
+	
+	L_Buy_Cash_Storage:
+	callfunc("IsCashEnough",.cash_price,"",1);
+	clear;
+	#is_cash_storage = 1;
+	mes "ขอบคุณสำหรับค่าบริการ";
+	
+	L_Use_Cash_Storage:
+	mes "โปรดใส่ตัวเลข 2~10 เพื่อเปิดใช้งานคลังที่ระบุ";
+	input .@i;
+	if(.@i < 2 || .@i > 10){
+		close;
+	}
+	.@i--;
+	openstorage2 .@i,STOR_MODE_GET|STOR_MODE_PUT;
+	
+OnInit:
+	.cash_price = 1000;
+	end;
 }
