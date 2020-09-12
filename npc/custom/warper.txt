@@ -31,9 +31,9 @@
 	" ~ เมืองหลวง",Towns,
 	" ~ พื้นที่",Fields,
 	" ~ ดันเจี้ยน",Dungeons,
+	" ~ ดันเจี้ยน 2",Instances,
 	" ~ ปราสาทกิลด์",Castles,
 	" ~ กิลด์ดันเจี้ยน",Guild_Dungeons,
-	" ~ ดันเจี้ยนส่วนตัว",Instances,
 	" ~ พื้นที่พิเศษ",Special;
 
 	if (lastwarp$ == "")
@@ -464,50 +464,144 @@ G8: Restrict("RE");
 	// --------------------------------------------------
 Instances:
 	// --------------------------------------------------
-	menu	"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3,
-	"Devil Tower",I4, "Eclage Interior",I5, "Endless Tower",I6,
+	menu	"Airship Assault",I21, "Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3,
+	"Central Laboratory",I22, "Chaleston Crisis",I23, "Devil Tower",I4, "Eclage Interior",I5, "Endless Tower",I6,
 	"Faceworms Nest",I7, "Geffen Magic Tournament",I8, "Ghost Palace",I9,
-	"Hazy Forest",I10, "Horror Toy Factory",I11, "Malangdo Culvert",I12,
-	"Nidhoggur's Nest",I13, "Octopus Cave",I14, "Old Glast Heim",I15,
+	"Hazy Forest",I10, "Heart Hunter War Base",I24, "Horror Toy Factory",I11, "Isle of Bios",I25, "Last Room",I26, "Malangdo Culvert",I12,
+	"Morse Cave",I27, "Nidhoggur's Nest",I13, "Nightmarish Jitterbug",I28, "Ritual of Blessing",I29, "Room of Consciousness",I30, 
+	"Octopus Cave",I14, "Old Glast Heim",I15,
 	"Orc's Memory",I16, "Sarah and Fenrir",I17, "Sara Memory",I18,
-	"Sealed Shrine",I19, "Wolfchev's Laboratory",I20;
+	"Sealed Shrine",I19, "Werner Laboratory Central Room",I31, "Wolfchev's Laboratory",I20;
 
+I21: Restrict("RE");
+switch(select("Airship Assault F1:Airship Assault F2")){
+	case 1:
+		Go("1@air1",0,0);
+	case 2:
+		Go("1@air2",0,0);
+	}
+I22: Restrict("RE");
+	Go("1@lab",0,0);
+I23: Restrict("RE");
+	Go("1@mcd",0,0);
+I24: Restrict("RE");
+	Go("1@swat",0,0);
+I25: Restrict("RE");
+switch(select("Isle of Bios F1:Isle of Bios F2:Isle of Bios F3")){
+	case 1:
+		Go("1@dth1",0,0);
+	case 2:
+		Go("1@dth2",0,0);
+	case 3:
+		Go("1@dth3",0,0);
+	}
+I26: Restrict("RE");
+	Go("1@uns",0,0);
+I27: Restrict("RE");
+	Go("1@rev",0,0);
+I28: Restrict("RE");
+	Go("1@jtb",0,0);
+I29: Restrict("RE");
+	Go("2@mir",0,0);
+I30 Restrict("RE");
+	Go("1@mir",0,0);
+I31 Restrict("RE");
+	Go("1@slw",0,0);
 I1: Restrict("RE");
-	Go("ma_scene01",172,175);
+	Go("1@ma_b",0,0);
 I2: Restrict("RE");
-	Go("ma_dun01",151,8);
+	Go("1@ma_h",0,0);
 I3: Restrict("RE");
-	Go("ma_fild02",316,317);
+	Go("1@ma_c",0,0);
 I4: Restrict("RE");
-	Go("dali02",137,115);
+switch(select("Devil Tower F1:Devil Tower F2:Devil Tower F3")){
+	case 1:
+		Go("1@tnm1",0,0);
+	case 2:
+		Go("1@tnm2",0,0);
+	case 3:
+		Go("1@tnm3",0,0);
+	}
 I5: Restrict("RE");
-	Go("ecl_hub01",129,12);
-I6: Go("e_tower",72,112);
+	Go("1@ecl",0,0);
+I6:
+switch(select("Endless Tower F1:Endless Tower F2:Endless Tower F3:Endless Tower F4:Endless Tower F5:Endless Tower F6")){
+	case 1:
+		Go("1@tower",0,0);
+	case 2:
+		Go("2@tower",0,0);
+	case 3:
+		Go("3@tower",0,0);
+	case 4:
+		Go("4@tower",0,0);
+	case 5:
+		Go("5@tower",0,0);
+	case 6:
+		Go("6@tower",0,0);
+	}
 I7: Restrict("RE");
-	Go("dali",85,64);
+	Go("1@face",0,0);
 I8: Restrict("RE");
-	Go("dali",94,141);
+switch(select("Geffen Tournament Entrance:Geffen Tournament Stadium")){
+	case 1:
+		Go("1@gef",0,0);
+	case 2:
+		Go("1@ge_st",0,0);
+	}
 I9: Restrict("RE");
-	Go("dali02",46,128);
+	Go("1@spa",0,0);
 I10: Restrict("RE");
-	Go("bif_fild01",161,334);
+	Go("1@mist",0,0);
 I11: Restrict("RE");
-	Go("xmas",234,298);
+	Go("1@xm_d",0,0);
 I12: Restrict("RE");
-	Go("mal_in01",164,21);
-I13: Go("nyd_dun02",95,193);
+switch(select("Malangdo Culvert F1:Malangdo Culvert F2")){
+	case 1:
+		Go("1@pump",0,0);
+	case 2:
+		Go("2@pump",0,0);
+	}
+I13:
+switch(select("Nidhoggur's Nest F1:Nidhoggur's Nest F2")){
+	case 1:
+		Go("1@nyd",0,0);
+	case 2:
+		Go("2@nyd",0,0);
+	}
 I14: Restrict("RE");
-	Go("mal_dun01",152,230);
+	Go("1@cash",0,0);
 I15: Restrict("RE");
-	Go("glast_01",204,268);
-I16: Go("gef_fild10",240,198);
+	switch(select("Old Glast Heim F1:Old Glast Heim F2")){
+	case 1:
+		Go("1@gl_k",0,0);
+	case 2:
+		Go("2@gl_k",0,0);
+	}
+I16: 
+switch(select("Orc's Memory F1:Orc's Memory F2")){
+	case 1:
+		Go("1@orcs",0,0);
+	case 2:
+		Go("2@orcs",0,0);
+	}
 I17: Restrict("RE");
-	Go("dali02",92,141);
+	Go("1@glast",0,0);
 I18: Restrict("RE");
-	Go("dali",133,108);
-I19: Go("monk_test",306,143);
+	Go("1@sara",133,108);
+I19: 
+switch(select("Sealed Shrine F1:Sealed Shrine F2")){
+	case 1:
+		Go("1@cata",0,0);
+	case 2:
+		Go("2@cata",0,0);
+	}
 I20: Restrict("RE");
-	Go("lhz_dun04",148,269);
+switch(select("Entrance:Wolfchev's Laboratory")){
+	case 1:
+		Go("que_lhz",0,0);
+	case 2:
+		Go("1@lhz",0,0);
+	}
 
 	// --------------------------------------------------
 Special:
