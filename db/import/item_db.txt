@@ -66,3 +66,7 @@
 // Non-kRO Eden Group Mark effect
 //=============================================================
 //22508,Para_Team_Mark_,Eden Group Mark,11,0,,0,,,,0,0xFFFFFFFF,63,2,,,,,,{ unitskilluseid getcharid(3),"AL_TELEPORT",3; },{},{}
+50000,Cash_Coin_1,Cash Coin 1,2,0,,0,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc("AddCash",1); },{},{}
+50001,Cash_Coin_10,Cash Coin 10,2,0,,0,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc("AddCash",10); },{},{}
+50002,Cash_Coin_100,Cash Coin 100,2,0,,0,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc("AddCash",100); },{},{}
+50003,Cash_Coin_1000,Cash Coin 1000,2,0,,0,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc("AddCash",1000); },{},{}
