@@ -1,8 +1,8 @@
-ma_b,0,0	monster	Bakonawa	2320,1,60000,300000
-ma_b,0,0	monster	Caldron	2328,1,60000,300000
-ma_b,0,0	monster	Caldron	2328,1,60000,300000
-ma_b,0,0	monster	Gong	2328,1,60000,300000
-ma_b,0,0	monster	Gong	2328,1,60000,300000
-ma_b,0,0	monster	Enraged Bakonawa	2321,1,60000,300000
-ma_b,0,0	monster	Enraged Bakonawa	2322,1,60000,300000
-ma_b,0,0	monster	Bakonawa's Puppet	2334,1,60000,300000
+1@ma_b,0,0	monster	Bakonawa	2320,1,60000,300000
+1@ma_b,0,0	monster	Caldron	2328,1,60000,300000
+1@ma_b,0,0	monster	Caldron	2328,1,60000,300000
+1@ma_b,0,0	monster	Gong	2328,1,60000,300000
+1@ma_b,0,0	monster	Gong	2328,1,60000,300000
+1@ma_b,0,0	monster	Enraged Bakonawa	2321,1,60000,300000
+1@ma_b,0,0	monster	Enraged Bakonawa	2322,1,60000,300000
+1@ma_b,0,0	monster	Bakonawa's Puppet	2334,1,60000,300000
