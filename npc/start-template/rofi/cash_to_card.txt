@@ -1,4 +1,4 @@
-prontera,163,135,3	script	แลก Cash เป็น Card	10033,{
+prontera,163,135,3	script	แลก Cash เป็น Card	564,{
 	.@cash_price = 50;
 	menu "แลก 1 อัน",L_Once,"ใส่จำนวน",L_Input,"แลกทั้งหมด",L_AllIn;
 	

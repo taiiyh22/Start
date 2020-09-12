@@ -17,7 +17,7 @@
 //= 1.3 Updated script, and fixed potential errors. [L0ne_W0lf]
 //============================================================ 
 
-prontera,163,147,4	script	เพิ่มแรงแบกของ	899,{
+prontera,163,147,4	script	เพิ่มแรงแบกของ	10303,{
 	.@cash_price = 100;
 	mes "ใช้ " + .@cash_price + " Cash ต่อ 1 ครั้ง สามารถเพิ่มแรงแบกของได้สูงสุด 10 ครั้ง";
 	next;

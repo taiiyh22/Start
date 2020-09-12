@@ -1,4 +1,4 @@
-prontera,163,131,3	script	แลก Cash เป็นอุปกรณ์สวมใส่	10033,{
+prontera,163,131,3	script	แลก Cash เป็นอุปกรณ์สวมใส่	564,{
 	.@cash_price = 5;
 	menu "แลก 1 อัน",L_Once,"ใส่จำนวน",L_Input,"แลกทั้งหมด",L_AllIn;
 	

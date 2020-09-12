@@ -1,4 +1,4 @@
-prontera,142,171,5	script	รวม Item แยกช่องมั่ว	10209,{
+prontera,142,171,5	script	รวม Item แยกช่องมั่ว	10250,{
 	mergeitem2;
 	mes "รวม Item ที่แยกช่องมั่ว เรียบร้อย!";
 	close;

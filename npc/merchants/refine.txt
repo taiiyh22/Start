@@ -20,7 +20,7 @@
 
 // Equipment Refiners
 //============================================================
-prontera,139,183,7	script	ตีบวก#1	85,{
+prontera,139,183,7	script	ตีบวก#1	10112,{
 	callfunc "refinemain","ช่าง",0;
 	end;
 	
@@ -144,8 +144,8 @@ function	script	refinemain	{
 
 // Ori/Elu Refiners
 //============================================================
-prontera,141,178,3	itemshop	แลก-Oridecon	10003,756,984:5
-prontera,143,178,3	itemshop	แลก-Elunium	902,757,985:5
+prontera,141,178,5	itemshop	แลก-Oridecon	10132,756,984:5
+prontera,143,178,3	itemshop	แลก-Elunium	10133,757,985:5
 
 //============================================================ 
 // Old changelog

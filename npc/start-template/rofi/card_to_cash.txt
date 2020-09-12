@@ -28,4 +28,4 @@ OnInit:
 	waitingroom "ย่อยการ์ด",0;
 	end;
 }
-prontera,163,167,3	duplicate(BurnCard)	 ย่อยการ์ด	418
+prontera,163,167,3	duplicate(BurnCard)	 ย่อยการ์ด	10306

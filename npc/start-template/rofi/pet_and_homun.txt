@@ -1,4 +1,4 @@
-prontera,163,163,3	script	¿Ñ¡ä¢è Pet	10121,{
+prontera,163,163,3	script	¿Ñ¡ä¢è Pet	10299,{
 	atcommand "@hatch";
 	end;
 	

@@ -18,7 +18,7 @@ OnInit:
 	waitingroom "ร้านค้า-ตีบวก",0;
 	end;
 }
-prontera,148,167,5	script	ร้านค้า-ของเริ่ม	99,{
+prontera,148,167,5	script	ร้านค้า-ของเริ่ม	603,{
 	callshop "newbie_equipment_shop",0;
 	end;
 	
@@ -26,7 +26,7 @@ OnInit:
 	waitingroom "ร้านค้า-ของเริ่ม",0;
 	end;
 }
-prontera,148,163,5	script	ร้านค้า-กระสุน 1	727,{
+prontera,148,163,5	script	ร้านค้า-กระสุน 1	953,{
 	callshop "ammo1_shop",0;
 	end;
 	
@@ -34,7 +34,7 @@ OnInit:
 	waitingroom "ร้านค้า-กระสุน 1",0;
 	end;
 }
-prontera,148,159,5	script	ร้านค้า-กระสุน 2	731,{
+prontera,148,159,5	script	ร้านค้า-กระสุน 2	803,{
 	callshop "ammo2_shop",0;
 	end;
 	
@@ -50,7 +50,7 @@ OnInit:
 	waitingroom "ร้านค้า-กระสุน 3",0;
 	end;
 }
-prontera,148,151,5	script	ร้านค้า-พ่อค้า	749,{
+prontera,148,151,5	script	ร้านค้า-พ่อค้า	867,{
 	callshop "merchant_shop",0;
 	end;
 	
@@ -58,7 +58,7 @@ OnInit:
 	waitingroom "ร้านค้า-พ่อค้า",0;
 	end;
 }
-prontera,148,147,5	script	ร้านค้า-โจร	803,{
+prontera,148,147,5	script	ร้านค้า-โจร	885,{
 	callshop "thief_shop",0;
 	end;
 	
@@ -66,7 +66,7 @@ OnInit:
 	waitingroom "ร้านค้า-โจร",0;
 	end;
 }
-prontera,148,143,5	script	ร้านค้า-นักดาบ	108,{
+prontera,148,143,5	script	ร้านค้า-นักดาบ	686,{
 	callshop "swordman_shop",0;
 	end;
 	
@@ -74,7 +74,7 @@ OnInit:
 	waitingroom "ร้านค้า-นักดาบ",0;
 	end;
 }
-prontera,148,139,5	script	ร้านค้า-นักเวทย์	902,{
+prontera,148,139,5	script	ร้านค้า-นักเวทย์	664,{
 	callshop "mage_shop",0;
 	end;
 	
@@ -82,7 +82,7 @@ OnInit:
 	waitingroom "ร้านค้า-นักเวทย์",0;
 	end;
 }
-prontera,148,135,5	script	ร้านค้า-EXP, Drop	721,{
+prontera,148,135,5	script	ร้านค้า-EXP, Drop	696,{
 	callshop "booster_shop",0;
 	end;
 	
@@ -90,7 +90,7 @@ OnInit:
 	waitingroom "ร้านค้า-EXP, Drop",0;
 	end;
 }
-prontera,148,131,5	script	ร้านค้า-Mercenary	724,{
+prontera,148,131,5	script	ร้านค้า-Mercenary	688,{
 	callshop "mercenary_shop",0;
 	end;
 	

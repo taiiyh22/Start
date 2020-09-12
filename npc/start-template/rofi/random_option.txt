@@ -1,4 +1,4 @@
-prontera,163,143,3	script	Random Option	10005,{
+prontera,163,143,3	script	Random Option	10060,{
 	disable_items;
 	
 	.@npc_name$ = "Random Option";

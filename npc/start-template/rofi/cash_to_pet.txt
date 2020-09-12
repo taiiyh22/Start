@@ -1,4 +1,4 @@
-prontera,163,127,3	script	แลก Cash เป็น Pet	10033,{
+prontera,163,127,3	script	แลก Cash เป็น Pet	564,{
 	.@cash_price = 5;
 	menu "แลก 1 อัน",L_Once,"ใส่จำนวน",L_Input,"แลกทั้งหมด",L_AllIn;
 	
