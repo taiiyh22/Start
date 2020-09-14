@@ -25,7 +25,7 @@ OnSellItem:
 	close;
 	
 OnInit:
-	waitingroom "ย่อยการ์ด",0;
+	waitingroom "แลก Card เป็น Cash",0;
 	end;
 }
-prontera,163,167,3	duplicate(BurnCard)	 ย่อยการ์ด	10306
+prontera,163,167,3	duplicate(BurnCard)	 แลก Card เป็น Cash	10306

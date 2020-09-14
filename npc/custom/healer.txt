@@ -23,10 +23,27 @@
 	.@Buffs = 1;	// o ให้ Buff หรือไม่? (1: ให้ / 0: ไม่ให้)
 	.@Repair = 1;	// o ซ่อมของทั้งตัว หรือไม่? (1: ให้ / 0: ไม่ให้)
 	.@Identify = 1;	// o ส่องของทั้งตัว หรือไม่? (1: ให้ / 0: ไม่ให้)
-	.@Delay = 0;	// o หลังจาก Heal แล้วต้องรอกี่วินาทีถึงจะกดได้อีกที (0: ไม่ต้องรอ)
-
-	if (@HD > gettimetick(2))
-	end;
+	.@Delay = 2;	// o หลังจาก Heal แล้วต้องรอกี่วินาทีถึงจะกดได้อีกที (0: ไม่ต้องรอ)
+	
+	if (@HD > gettimetick(2)){
+		if(#is_cash_heal >= .max_cash_heal)
+		end;
+		else{
+			mes "ต้องการ Upgrade Buff หรือไม่?";
+			.@sum_price = #is_cash_heal * .cash_price;
+			if(.@sum_price <= 0)
+			.@sum_price = .cash_price;
+			mes "ใช้ " + .@sum_price + " Cash";
+			next;
+			menu "ยกเลิก",-,"Upgrade",L_Upgrade;
+			close;
+			L_Upgrade:
+			callfunc("IsCashEnough",.@sum_price,"",1);
+			#is_cash_heal++;
+			mes "ระดับ Buff: " + #is_cash_heal + "/" + .max_cash_heal;
+			close;
+		}
+	}
 	if (.@Price) {
 		message strcharinfo(0), "ค่าใช้จ่าย " + callfunc("F_InsertComma",.@Price) + " Zeny";
 		if (Zeny < .@Price)
@@ -47,15 +64,31 @@
 	if(.@Identify)
 	identifyall;
 	percentheal 100,100;
+
+	if(#is_cash_heal>0)sc_start SC_FOOD_STR_CASH,1800000,15;
+	if(#is_cash_heal>1)sc_start SC_FOOD_VIT_CASH,1800000,15;
+	if(#is_cash_heal>2)sc_start SC_FOOD_AGI_CASH,1800000,15;
+	if(#is_cash_heal>3)sc_start SC_FOOD_INT_CASH,1800000,15;
+	if(#is_cash_heal>4)sc_start SC_FOOD_DEX_CASH,1800000,15;
+	if(#is_cash_heal>5)sc_start SC_FOOD_LUK_CASH,1800000,15;
+	if(#is_cash_heal>6)sc_start SC_FLEEFOOD,600000,30;
+	if(#is_cash_heal>7)sc_start SC_HITFOOD,600000,15;
+	if(#is_cash_heal>8)sc_start SC_CRIFOOD,600000,15;
+	if(#is_cash_heal>9)sc_start SC_ATKPOTION,600000,100;
+	if(#is_cash_heal>10)sc_start SC_MATKPOTION,600000,100;
+	
 	if (.@Delay)
 	@HD = gettimetick(2) + .@Delay;
 	end;
 	
 OnInit:
-	waitingroom "ฟื้นฟูพลังชีวิต",0;
+	waitingroom "ฟื้นฟูพลังชีวิต (กดรัว ๆ เพื่อ Upg.)",0;
+	
+	.cash_price = 100;
+	.max_cash_heal = 11;
+	
 	end;
 }
-
 
 // Duplicates
 //============================================================
