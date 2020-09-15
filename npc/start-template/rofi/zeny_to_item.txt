@@ -1,4 +1,4 @@
-prontera,163,203,5	script	Zeny แลก Item	10134,{
+prontera,163,203,5	script	Zeny แลก Item	562,{
 	if(#is_zeny_to_item_using){
 		mes "*ใช้ร่วมกันทั้ง ID";
 		mes "Item ที่คุณเลือก: " + getitemname(#target_zeny_to_item);
@@ -16,6 +16,12 @@ prontera,163,203,5	script	Zeny แลก Item	10134,{
 		mes "ประเภทที่ระบุได้คือ Card, Equipment";
 		mes "^eb4034*เมื่อระบุแล้ว จะไม่สามารถเปลี่ยนได้ จนกว่าจะได้รับของ^000000";
 		callsub L_CurrentInfo;
+		mes "---";
+		mes "เลข Item หาจากไหน";
+		mes "<URL>Link 1<INFO>https://www.divine-pride.net/database/item</INFO></URL>";
+		mes "<URL>Link 2<INFO>https://raw.githubusercontent.com/kaninhot004/Start/rofi/db/re/item_db.txt</INFO></URL>";
+		
+		
 		next;
 		menu "ไม่ทำอะไร",L_Cancel,"เลือกของและจับรางวัล",L_Input;
 	}
