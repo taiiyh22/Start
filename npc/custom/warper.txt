@@ -34,12 +34,17 @@
 	" ~ ดันเจี้ยน 2",Instances,
 	" ~ ปราสาทกิลด์",Castles,
 	" ~ กิลด์ดันเจี้ยน",Guild_Dungeons,
-	" ~ พื้นที่พิเศษ",Special;
+	" ~ พื้นที่พิเศษ",Special,
+	" ~ บันทึกจุดเกิด",L_SavePoint;
 
 	if (lastwarp$ == "")
 	message strcharinfo(0),"คุณยังไม่เคยวาร์ปไปไหนมาก่อน";
 	else
 	warp lastwarp$,lastwarpx,lastwarpy;
+	end;
+	
+	L_SavePoint:
+	savepoint "prontera",156,191;
 	end;
 
 	// ------------------- Functions -------------------
