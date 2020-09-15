@@ -23,7 +23,7 @@ prontera,163,171,3	script	ถอดการ์ด	10307,{
 	mes "•ถอดการ์ดฟรี";
 	mes "•ถอดได้เลย ไม่ต้องกลัวอะไรหายทั้งนั้น";
 	next;
-	setarray .@indices[1],EQI_HEAD_TOP,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_SHADOW_WEAPON,EQI_SHADOW_ARMOR,EQI_SHADOW_SHIELD,EQI_COSTUME_GARMENT,EQI_SHADOW_SHOES,EQI_SHADOW_ACC_L,EQI_SHADOW_ACC_R,EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW;
+	setarray .@indices[1],EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R;
 	for(.@i = 1; .@i < getarraysize(.@indices); .@i++){
 		if(getequipisequiped(.@indices[.@i])){
 			.@menu$ = .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";

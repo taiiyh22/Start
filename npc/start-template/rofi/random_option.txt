@@ -1,0 +1,88 @@
+prontera,163,143,3	script	Random Option	10060,{
+	disable_items;
+	
+	.@npc_name$ = "Random Option";
+	.@cash_price = 10;
+	
+	mes "["+ .@npc_name$ +"]";
+	mes "เลือกอุปกรณ์ ที่ต้องการสุ่มพลังได้เลย";
+	mes "---";
+	mes "โอกาสติด 1 แถว: 100%";
+	mes "โอกาสติด 2 แถว: 80%";
+	mes "โอกาสติด 3 แถว: 60%";
+	mes "โอกาสติด 4 แถว: 40%";
+	mes "โอกาสติด 5 แถว: 20%";
+	mes "---";
+	mes "ค่าที่ได้รับ: 1~2";
+	mes "---";
+	mes "หากเคยติด 5 แถวแล้ว แต่สุ่มใหม่ได้แถวน้อยกว่า แถวที่ไม่ได้สุ่มใหม่จะยังเหมือนเดิมไม่เปลี่ยน";
+	mes "---";
+	mes "ค่าบริการ: " + .@cash_price + " Cash";
+	next;
+
+	setarray .@indices[1], EQI_ACC_L,EQI_ACC_R,EQI_SHOES,EQI_GARMENT,EQI_HEAD_LOW,EQI_HEAD_MID,EQI_HEAD_TOP,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R,EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT,EQI_SHADOW_ARMOR,EQI_SHADOW_WEAPON,EQI_SHADOW_SHIELD,EQI_SHADOW_SHOES,EQI_SHADOW_ACC_R,EQI_SHADOW_ACC_L;
+	for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
+		if(getequipisequiped(.@indices[.@i])) {
+			.@menu$ = .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			.@equipped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	if (.@equipped == 0) {
+		mes "["+ .@npc_name$ +"]";
+		mes "เกิดข้อผิดพลาด #1";
+		close;
+	}
+	
+	.@part = .@indices[select(.@menu$)];
+
+	if(!getequipisequiped(.@part)) {
+		mes "["+ .@npc_name$ +"]";
+		mes "เกิดข้อผิดพลาด #2";
+		close;
+	}
+
+	callfunc("IsCashEnough",.@cash_price,"",1);
+
+	.@opt_slot = rand(100);
+	if(.@opt_slot > 80){
+		.@sum_slot = 5;
+		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,1,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,2,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,3,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,4,rand(1,220),rand(1,2),0);
+	}
+	else if(.@opt_slot > 60){
+		.@sum_slot = 4;
+		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,1,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,2,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,3,rand(1,220),rand(1,2),0);
+	}
+	else if(.@opt_slot > 40){
+		.@sum_slot = 3;
+		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,1,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,2,rand(1,220),rand(1,2),0);
+	}
+	else if(.@opt_slot > 20){
+		.@sum_slot = 2;
+		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
+		setrandomoption(.@part,1,rand(1,220),rand(1,2),0);
+	}
+	else if(.@opt_slot <= 20){
+		.@sum_slot = 1;
+		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
+	}
+	
+	announce strcharinfo(0) + " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Random Option " + .@sum_slot + " แถว !!",bc_all,0xedeaaf;
+	
+	close;
+	
+OnInit:
+	waitingroom "Random Option",0;
+	end;
+}
+
