@@ -11186,7 +11186,7 @@
 20533,C_PinkButterfly_Wing_T,Costume Fly Like a Butterfly (Pink),4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,38,{},{},{}
 20535,C_Digital_Space,Costume Digital Space,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_DIGITAL_SPACE,true); },{},{ hateffect(HAT_EF_DIGITAL_SPACE,false); }
 20537,C_Falling_Red_Foliage,Costume Falling Red Foliage,4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_C_MAPLE_WHICH_FALLS_RD,true); },{},{ hateffect(HAT_EF_C_MAPLE_WHICH_FALLS_RD,false); }
-20538,Costume_Magic_Circle_Rainbow,Costume Magic Circle Rainbow,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_MAGICCIRCLERAINBOW,true); },{},{ hateffect(HAT_EF_MAGICCIRCLERAINBOW,false); }
+20538,Costume_Magic_Circle_Rainbow,Costume Magic Circle Rainbow,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ /*hateffect(HAT_EF_MAGICCIRCLERAINBOW,true);*/ },{},{ hateffect(HAT_EF_MAGICCIRCLERAINBOW,false); }
 20543,C_Halloween_Poring_Bag,Costume Halloween Poring Bag,4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,44,{},{},{}
 20546,C_Backside_Ribbon_Bell,Costume Giant Ribbon Bell,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,46,{},{},{}
 20547,C_Ghost_Effect,Costume Ghost Effect,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_C_GHOST_EFFECT,true); },{},{ hateffect(HAT_EF_C_GHOST_EFFECT,false); }
