@@ -297,11 +297,13 @@ Dungeons:
 	"Glast Heim",D17, "Kunlun Dungeon",D18, "Hidden Dungeon",D19,
 	"Ice Dungeon",D20, "Juperos",D21, "Kiel Dungeon",D22, "Lasagna Dungeon",D23,
 	"Luoyang Dungeon",D24, "Magma Dungeon",D25, "Malangdo Dungeon",D26,
-	"Moscovia Dungeon",D27, "Nidhogg's Dungeon",D28, "Odin Temple",D29,
+	"Moscovia Dungeon",D27, "Nidhogg's Dungeon",D28, "Nightmare Biolabs",D45, "Odin Temple",D29,
 	"Orc Dungeon",D30, "Prontera Invasion",D44,"Payon Dungeon",D31, "Pyramids",D32, "Rachel Sanctuary",D33,
 	"Rock Ridge",D43,
 	"Scaraba Hole",D34, "Sphinx",D35, "Sunken Ship",D36, "Thanatos Tower",D37,
 	"Thor Volcano",D38, "Toy Factory",D39, "Turtle Dungeon",D40, "Umbala Dungeon",D41;
+D45:
+	Go("lhz_dun_n",0,0);
 D44:
 	Go("prt_q",0,0);
 D43: setarray @c[2],0,0,0,0,0,0;
