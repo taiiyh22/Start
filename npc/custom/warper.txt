@@ -201,10 +201,12 @@ Fields:
 	"Lasagna Fields",F13, "Lighthalzen Fields",F14, "Luoyang Field",F15, 
 	"Lutie Field",F16, "Malaya Fields",F17, "Manuk Fields",F18, 
 	"Mjolnir Fields",F19, "Moscovia Fields",F20, "Niflheim Fields",F21, 
-	"Payon Forests",F22, "Prontera Fields",F23, "Rachel Fields",F24, 
+	"Payon Forests",F22, "Prontera Fields",F23, "Rachel Fields",F24, "Rock Ridge Fields",F30,
 	"Sograt Deserts",F25, "Splendide Fields",F26, "Umbala Fields",F27, 
 	"Veins Fields",F28, "Juno Fields",F29;
 
+F30: setarray @c[2],0,0,0,0;
+	Disp("Rock Ridge Field",1,2); Pick("","rockrdg1","rockrdg2");
 F1: setarray @c[2],190,197;
 	Disp("Amatsu Field",1,1); Pick("ama_fild");
 F2: setarray @c[2],173,134,212,150;
