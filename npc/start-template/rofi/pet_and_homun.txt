@@ -7,8 +7,10 @@ OnInit:
 	end;
 }
 
-prontera,163,159,3	script	ให้อาหาร Pet & Homun.	10125,{
+prontera,163,159,3	script	Pet & Homun. อิ่มสนิท	10125,{
+	atcommand "@petfriendly 1000";
 	atcommand "@pethungry 100";
+	atcommand "@homfriendly 1000";
 	atcommand "@homhungry 100";
 	end;
 	
