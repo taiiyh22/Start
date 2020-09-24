@@ -53,13 +53,14 @@ function	script	Mon_Mon	{
 	if(mon_mon_class > 0){
 		if(Class != 4050)
 		atcommand "@job 4050";
-		
+	
+		skill 1,9,3;
 		atcommand "@disguise " + mon_mon_class;
 		
 		.@skill_lv = (BaseLevel / 10);
 		
-		if(BaseLevel >= 99)
-		.@skill_lv = 10;
+		if(BaseLevel >= 130)
+		.@skill_lv = 13;
 		
 		if(.@skill_lv <= 0)
 		.@skill_lv = 1;
@@ -84,4 +85,16 @@ function	script	Mon_Mon	{
 		bonus_script "{ bonus2 bExpAddClass,Class_All,-90; }",36000000,8;
 	}
 	return;	
+}
+
+function	script	Re_Mon_Mon	{
+	if(mon_mon_class > 0)
+	atcommand "@disguise " + mon_mon_class;
+	return;
+}
+
+function	script	Un_Mon_Mon	{
+	if(mon_mon_class > 0)
+	atcommand "@undisguise";
+	return;
 }

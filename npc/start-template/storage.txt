@@ -1,4 +1,4 @@
-prontera,150,191,5	script	คลังเก็บของ	10005,{
+prontera,150,191,5	script	คลังเก็บของ	10005,6,6,{
 	specialeffect2 65;
 	if(getcharid(2) > 0)
 	menu "เปิดคลังปกติ",L_Storage,"เปิดคลังกิลด์",L_Guild_Storage,"เปิดคลัง Cash",L_Cash_Storage;
@@ -41,6 +41,11 @@ prontera,150,191,5	script	คลังเก็บของ	10005,{
 	}
 	.@i--;
 	openstorage2 .@i,STOR_MODE_GET|STOR_MODE_PUT;
+	end;
+	
+OnTouch:
+	callfunc("Un_Mon_Mon");
+	end;
 	
 OnInit:
 	.cash_price = 1000;

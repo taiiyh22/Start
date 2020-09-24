@@ -26,6 +26,8 @@
 	// --------------------------------------------------
 	//	Main Menu:
 	// --------------------------------------------------
+	
+	callfunc("Re_Mon_Mon");
 
 	menu	"วาร์ปล่าสุด ^777777["+lastwarp$+"]^000000",-,
 	" ~ เมืองหลวง",Towns,
@@ -488,7 +490,7 @@ Instances:
 	"Sealed Shrine",I19, "Werner Laboratory Central Room",I31, "Wolfchev's Laboratory",I20;
 
 I21: Restrict("RE");
-switch(select("Airship Assault F1:Airship Assault F2")){
+	switch(select("Airship Assault F1:Airship Assault F2")){
 	case 1:
 		Go("1@air1",0,0);
 	case 2:
@@ -501,7 +503,7 @@ I23: Restrict("RE");
 I24: Restrict("RE");
 	Go("1@swat",0,0);
 I25: Restrict("RE");
-switch(select("Isle of Bios F1:Isle of Bios F2:Isle of Bios F3")){
+	switch(select("Isle of Bios F1:Isle of Bios F2:Isle of Bios F3")){
 	case 1:
 		Go("1@dth1",0,0);
 	case 2:
@@ -528,7 +530,7 @@ I2: Restrict("RE");
 I3: Restrict("RE");
 	Go("1@ma_c",0,0);
 I4: Restrict("RE");
-switch(select("Devil Tower F1:Devil Tower F2:Devil Tower F3")){
+	switch(select("Devil Tower F1:Devil Tower F2:Devil Tower F3")){
 	case 1:
 		Go("1@tnm1",0,0);
 	case 2:
@@ -539,7 +541,7 @@ switch(select("Devil Tower F1:Devil Tower F2:Devil Tower F3")){
 I5: Restrict("RE");
 	Go("1@ecl",0,0);
 I6:
-switch(select("Endless Tower F1:Endless Tower F2:Endless Tower F3:Endless Tower F4:Endless Tower F5:Endless Tower F6")){
+	switch(select("Endless Tower F1:Endless Tower F2:Endless Tower F3:Endless Tower F4:Endless Tower F5:Endless Tower F6")){
 	case 1:
 		Go("1@tower",0,0);
 	case 2:
@@ -556,7 +558,7 @@ switch(select("Endless Tower F1:Endless Tower F2:Endless Tower F3:Endless Tower 
 I7: Restrict("RE");
 	Go("1@face",0,0);
 I8: Restrict("RE");
-switch(select("Geffen Tournament Entrance:Geffen Tournament Stadium")){
+	switch(select("Geffen Tournament Entrance:Geffen Tournament Stadium")){
 	case 1:
 		Go("1@gef",0,0);
 	case 2:
@@ -569,14 +571,14 @@ I10: Restrict("RE");
 I11: Restrict("RE");
 	Go("1@xm_d",0,0);
 I12: Restrict("RE");
-switch(select("Malangdo Culvert F1:Malangdo Culvert F2")){
+	switch(select("Malangdo Culvert F1:Malangdo Culvert F2")){
 	case 1:
 		Go("1@pump",0,0);
 	case 2:
 		Go("2@pump",0,0);
 	}
 I13:
-switch(select("Nidhoggur's Nest F1:Nidhoggur's Nest F2")){
+	switch(select("Nidhoggur's Nest F1:Nidhoggur's Nest F2")){
 	case 1:
 		Go("1@nyd",0,0);
 	case 2:
@@ -592,7 +594,7 @@ I15: Restrict("RE");
 		Go("2@gl_k",0,0);
 	}
 I16: 
-switch(select("Orc's Memory F1:Orc's Memory F2")){
+	switch(select("Orc's Memory F1:Orc's Memory F2")){
 	case 1:
 		Go("1@orcs",0,0);
 	case 2:
@@ -603,14 +605,14 @@ I17: Restrict("RE");
 I18: Restrict("RE");
 	Go("1@sara",133,108);
 I19: 
-switch(select("Sealed Shrine F1:Sealed Shrine F2")){
+	switch(select("Sealed Shrine F1:Sealed Shrine F2")){
 	case 1:
 		Go("1@cata",0,0);
 	case 2:
 		Go("2@cata",0,0);
 	}
 I20: Restrict("RE");
-switch(select("Entrance:Wolfchev's Laboratory")){
+	switch(select("Entrance:Wolfchev's Laboratory")){
 	case 1:
 		Go("que_lhz",0,0);
 	case 2:
