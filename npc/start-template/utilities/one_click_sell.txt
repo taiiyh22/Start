@@ -1,7 +1,7 @@
 -	script	One_Click_Sell	-1,{
 	.@Delay = 30;
 	
-	if (@HD > gettimetick(2)){
+	if (@OCSD > gettimetick(2)){
 		dispbottom "โปรดรอ 30 วินาที";
 		end;
 	}
@@ -34,7 +34,7 @@
 	}
 	
 	if (.@Delay)
-	@HD = gettimetick(2) + .@Delay;
+	@OCSD = gettimetick(2) + .@Delay;
 
 	//dispbottom "One Click Sell >> Finish";
 	
