@@ -1332,6 +1332,11 @@ uint8 pc_isequip(struct map_session_data *sd,int n)
 
 	item = sd->inventory_data[n];
 
+	//Mon - Mon classes [Start]
+	if (sd->status.class_ == JOB_GANGSI) {
+		return ITEM_EQUIP_ACK_OK;
+	}
+
 	if(pc_has_permission(sd, PC_PERM_USE_ALL_EQUIPMENT))
 		return ITEM_EQUIP_ACK_OK;
 
