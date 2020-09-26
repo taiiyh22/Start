@@ -26,8 +26,6 @@
 	// --------------------------------------------------
 	//	Main Menu:
 	// --------------------------------------------------
-	
-	callfunc("Re_Mon_Mon");
 
 	menu	"วาร์ปล่าสุด ^777777["+lastwarp$+"]^000000",-,
 	" ~ เมืองหลวง",Towns,
@@ -74,6 +72,8 @@
 	// --------------------------------------------------
 
 	function Go {
+		callfunc("Re_Mon_Mon");
+		
 		set lastwarp$, getarg(0);
 		set lastwarpx, getarg(1,0);
 		set lastwarpy, getarg(2,0);

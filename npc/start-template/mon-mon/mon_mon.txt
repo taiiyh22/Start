@@ -51,6 +51,8 @@ function	script	Monster_Selecter	{
 
 function	script	Mon_Mon	{
 	if(mon_mon_class > 0){
+		is_mon_mon_disguise = 1;
+		
 		if(Class != 4050)
 		atcommand "@job 4050";
 	
@@ -88,13 +90,18 @@ function	script	Mon_Mon	{
 }
 
 function	script	Re_Mon_Mon	{
-	if(mon_mon_class > 0)
-	atcommand "@disguise " + mon_mon_class;
+	if(mon_mon_class > 0 && !is_mon_mon_disguise){
+		atcommand "@disguise " + mon_mon_class;
+		is_mon_mon_disguise = 1;
+	}
+	
 	return;
 }
 
 function	script	Un_Mon_Mon	{
-	if(mon_mon_class > 0)
-	atcommand "@undisguise";
+	if(mon_mon_class > 0 && is_mon_mon_disguise){
+		atcommand "@undisguise";
+		is_mon_mon_disguise = 0;
+	}
 	return;
 }

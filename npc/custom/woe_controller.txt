@@ -26,7 +26,7 @@
 
 // Information NPC
 //============================================================
-prontera,148,203,3	script	WOE Information	835,{
+prontera,154,198,3	script	WOE Information	835,{
 	doevent "WOE_CONTROL::OnMenu";
 	end;
 }

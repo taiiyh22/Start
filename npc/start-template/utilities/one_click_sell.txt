@@ -45,4 +45,4 @@ OnInit:
 	end;
 }
 
-prontera,144,200,3	duplicate(One_Click_Sell)	คลิกขายของ	831
+prontera,148,203,3	duplicate(One_Click_Sell)	คลิกขายของ	831
