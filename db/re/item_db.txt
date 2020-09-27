@@ -11180,7 +11180,7 @@
 20516,C_Wings_of_Michael,Costume Wings of Michael,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,24,{},{},{}
 20517,C_GiantCatBag_TW,Costume Giant Cat Backpack,4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,25,{},{},{}
 20519,C_Full_BloomCherry_Tree,Costume Full Bloom Cherry Tree,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_FULL_BLOOMCHERRY_TREE,true); },{},{ hateffect(HAT_EF_FULL_BLOOMCHERRY_TREE,false); }
-20522,C_Blessings_Of_Soul,Costume Blessings Of Soul,4,0,,0,,0,,4,0xFFFFFFFF,63,2,4096,,1,1,0,{ hateffect(HAT_EF_C_BLESSINGS_OF_SOUL,true); },{},{ hateffect(HAT_EF_C_BLESSINGS_OF_SOUL,false); }
+20522,C_Blessings_Of_Soul,Costume Blessings Of Soul,4,0,,0,,0,,4,0xFFFFFFFF,63,2,4096,,1,1,0,{ /*hateffect(HAT_EF_C_BLESSINGS_OF_SOUL,true);*/ },{},{ hateffect(HAT_EF_C_BLESSINGS_OF_SOUL,false); }
 20524,C_Shining_Angel_Wings,Costume Shining Angel Wings,4,0,,0,,0,,4,0xFFFFFFFF,63,2,8192,,1,1,0,{ hateffect(HAT_EF_C_SHINING_ANGEL_WING,true); },{},{ hateffect(HAT_EF_C_SHINING_ANGEL_WING,false); }
 20530,C_Wings_of_Gabriel,Costume Wings of Gabriel,4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,37,{},{},{}
 20533,C_PinkButterfly_Wing_T,Costume Fly Like a Butterfly (Pink),4,0,,0,,,,4,0xFFFFFFFF,63,2,8192,,1,1,38,{},{},{}
