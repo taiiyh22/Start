@@ -39,8 +39,11 @@
 
 	if (lastwarp$ == "")
 	message strcharinfo(0),"คุณยังไม่เคยวาร์ปไปไหนมาก่อน";
-	else
-	warp lastwarp$,lastwarpx,lastwarpy;
+	else{
+		callfunc("Re_Mon_Mon");
+		
+		warp lastwarp$,lastwarpx,lastwarpy;
+	}
 	end;
 	
 	L_SavePoint:
