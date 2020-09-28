@@ -77,7 +77,8 @@ prontera,163,143,3	script	Random Option	10060,{
 		setrandomoption(.@part,0,rand(1,220),rand(1,2),0);
 	}
 	
-	announce strcharinfo(0) + " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Random Option " + .@sum_slot + " แถว !!",bc_all,0xedeaaf;
+	//announce strcharinfo(0) + " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Random Option " + .@sum_slot + " แถว !!",bc_all,0xedeaaf;
+	dispbottom " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Random Option " + .@sum_slot + " แถว !!",bc_all,0xedeaaf;
 	
 	close;
 	
