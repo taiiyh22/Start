@@ -92,7 +92,7 @@ prontera,163,139,3	script	Enchant Equipment	10058,{
 	equip .@item;
 	
 	//announce strcharinfo(0) + " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Enchant " + getitemname(.@rand_stone) + "!!",bc_all,0xedeaaf;
-	dispbottom " ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Enchant " + getitemname(.@rand_stone) + "!!",bc_all,0xedeaaf;
+	dispbottom "ใช้ " + .@cash_price + " Cash กับ " + getequipname(.@part) + " ได้รับ Enchant " + getitemname(.@rand_stone) + "!!";
 	
 	close;
 	

@@ -40,9 +40,8 @@
 	if (lastwarp$ == "")
 	message strcharinfo(0),"คุณยังไม่เคยวาร์ปไปไหนมาก่อน";
 	else{
-		callfunc("Re_Mon_Mon");
-		
 		warp lastwarp$,lastwarpx,lastwarpy;
+		callfunc("Re_Mon_Mon");
 	}
 	end;
 	
@@ -75,12 +74,11 @@
 	// --------------------------------------------------
 
 	function Go {
-		callfunc("Re_Mon_Mon");
-		
 		set lastwarp$, getarg(0);
 		set lastwarpx, getarg(1,0);
 		set lastwarpy, getarg(2,0);
 		warp getarg(0),getarg(1,0),getarg(2,0);
+		callfunc("Re_Mon_Mon");
 		end;
 	}
 	function Disp {
