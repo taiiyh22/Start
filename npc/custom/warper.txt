@@ -27,7 +27,8 @@
 	//	Main Menu:
 	// --------------------------------------------------
 
-	menu	"วาร์ปล่าสุด ^777777["+lastwarp$+"]^000000",-,
+	menu "วาร์ปล่าสุด ^777777["+lastwarp$+"]^000000",-,
+	" ~ ล่า Cash",Cash_Boss,
 	" ~ เมืองหลวง",Towns,
 	" ~ พื้นที่",Fields,
 	" ~ ดันเจี้ยน",Dungeons,
@@ -48,7 +49,42 @@
 	L_SavePoint:
 	savepoint "prontera",156,191;
 	end;
+	
+	Cash_Boss:
+	menu " ~ ระดับ ง่ายมาก ๆ",L_Cash_Boss_01,
+	" ~ ระดับ ง่าย",L_Cash_Boss_02,
+	" ~ ระดับ ปกติ",L_Cash_Boss_03,
+	" ~ ระดับ ยาก",L_Cash_Boss_04,
+	" ~ ระดับ ยากมาก ๆ",L_Cash_Boss_05,
+	" ~ ระดับ ยากเหี้ย",L_Cash_Boss_06,
+	" ~ ระดับ ยากเหี้ย ๆ",L_Cash_Boss_07,
+	" ~ ระดับ ยากเหี้ย ๆ ๆ",L_Cash_Boss_08;
 
+	L_Cash_Boss_01:
+	callfunc("Cash_Boss_Warper",1,20,"bossnia_01");
+	end;
+	L_Cash_Boss_02:
+	callfunc("Cash_Boss_Warper",3,40,"bossnia_02");
+	end;
+	L_Cash_Boss_03:
+	callfunc("Cash_Boss_Warper",5,60,"bossnia_03");
+	end;
+	L_Cash_Boss_04:
+	callfunc("Cash_Boss_Warper",10,80,"bossnia_04");
+	end;
+	L_Cash_Boss_05:
+	callfunc("Cash_Boss_Warper",20,100,"vis_h01");
+	end;
+	L_Cash_Boss_06:
+	callfunc("Cash_Boss_Warper",30,150,"vis_h02");
+	end;
+	L_Cash_Boss_07:
+	callfunc("Cash_Boss_Warper",40,200,"vis_h03");
+	end;
+	L_Cash_Boss_08:
+	callfunc("Cash_Boss_Warper",50,250,"vis_h04");
+	end;
+	
 	// ------------------- Functions -------------------
 	// * Go("<map>",<x>,<y>);
 	//	~ Warps directly to a map.
