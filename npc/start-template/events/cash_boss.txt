@@ -98,7 +98,6 @@ function	script	Cash_Boss_Warper	{
 	mes "- ลด พลังป้องกัน " + .@stats_penalty + "%";
 	mes "- ลด พลังป้องกันเวทย์ " + .@stats_penalty + "%";
 	mes "- ลด Max HP " + (.@stats_penalty/2) + "%";
-	mes "- ลด Max SP " + (.@stats_penalty/2) + "%";
 	mes "---";
 	mes "^ff0000* ภายใน Map จะไม่ได้รับ EXP, Monster จะไม่ Drop Item";
 	mes "* ไม่สามารถทำการ เคลื่อนย้ายตัวละคร ภายใน Map ได้ ต้อง กดเลือกตัวละคร แล้วเข้าใหม่เท่านั้น^000000";
@@ -111,7 +110,6 @@ function	script	Cash_Boss_Warper	{
 	bonus_script_clear 8;
 	bonus_script "{"
 	+ "bonus bMaxHPrate,-" + (.@stats_penalty/2) + ";"
-	+ "bonus bMaxSPrate,-" + (.@stats_penalty/2) + ";"
 	+ "bonus2 bAddClass,Class_All,-" + .@stats_penalty + ";"
 	+ "bonus2 bMagicAddClass,Class_All,-" + .@stats_penalty + ";"
 	+ "bonus2 bSubSize,Size_All,-" + .@stats_penalty + ";"
