@@ -91,7 +91,7 @@ function	script	Cash_Boss_Warper	{
 	.@stats_penalty = getarg(1);
 	.@map_name$ = getarg(2);
 	
-	mes "* เมื่อกำจัด Monster ภายใน Map ดังกล่าว จะมีโอกาส " + .@cash_chance + "% ที่จะได้รับ 1 Cash";
+	mes "* เมื่อกำจัด Monster ภายใน Map ดังกล่าว จะมีโอกาส " + .@cash_chance + "% ที่จะได้รับ Cash";
 	mes "* เมื่อเข้า Map จะติดโทษ ^ff0000(โทษจะหายเมื่อ กดเลือกตัวละคร แล้วเข้าใหม่เท่านั้น)^000000";
 	mes "- ลด พลังโจมตี " + .@stats_penalty + "%";
 	mes "- ลด พลังโจมตีเวทย์ " + .@stats_penalty + "%";
@@ -128,7 +128,7 @@ OnInit:
 -	script	Cash_Boss_01_Spawner	-1,{
 OnInit:
 	.map_name$ = "bossnia_01";
-	.cash_chance = 1;
+	.cash_chance = 10;
 	
 	freeloop(1);
 	.@spawn_count = 50;
@@ -151,7 +151,7 @@ OnCashBossDead:
 -	script	Cash_Boss_02_Spawner	-1,{
 OnInit:
 	.map_name$ = "bossnia_02";
-	.cash_chance = 3;
+	.cash_chance = 15;
 	
 	freeloop(1);
 	.@spawn_count = 50;
@@ -174,7 +174,7 @@ OnCashBossDead:
 -	script	Cash_Boss_03_Spawner	-1,{
 OnInit:
 	.map_name$ = "bossnia_03";
-	.cash_chance = 5;
+	.cash_chance = 20;
 	
 	freeloop(1);
 	.@spawn_count = 50;
@@ -197,7 +197,7 @@ OnCashBossDead:
 -	script	Cash_Boss_04_Spawner	-1,{
 OnInit:
 	.map_name$ = "bossnia_04";
-	.cash_chance = 10;
+	.cash_chance = 25;
 	
 	freeloop(1);
 	.@spawn_count = 50;
@@ -235,7 +235,7 @@ OnInit:
 OnCashBossDead:
 	//dispbottom ".cash_chance: " + .cash_chance;
 	if(rand(1,100) <= .cash_chance)
-	callfunc("AddCash",1);
+	callfunc("AddCash",2);
 	monster .map_name$,0,0,"--ja--",$all_mvp[rand(0,getarraysize($all_mvp) - 1)],1,strnpcinfo(3)+"::OnCashBossDead";
 	end;
 }
@@ -258,7 +258,7 @@ OnInit:
 OnCashBossDead:
 	//dispbottom ".cash_chance: " + .cash_chance;
 	if(rand(1,100) <= .cash_chance)
-	callfunc("AddCash",1);
+	callfunc("AddCash",3);
 	monster .map_name$,0,0,"--ja--",$all_mvp[rand(0,getarraysize($all_mvp) - 1)],1,strnpcinfo(3)+"::OnCashBossDead";
 	end;
 }
@@ -281,7 +281,7 @@ OnInit:
 OnCashBossDead:
 	//dispbottom ".cash_chance: " + .cash_chance;
 	if(rand(1,100) <= .cash_chance)
-	callfunc("AddCash",1);
+	callfunc("AddCash",4);
 	monster .map_name$,0,0,"--ja--",$all_mvp[rand(0,getarraysize($all_mvp) - 1)],1,strnpcinfo(3)+"::OnCashBossDead";
 	end;
 }
@@ -304,7 +304,7 @@ OnInit:
 OnCashBossDead:
 	//dispbottom ".cash_chance: " + .cash_chance;
 	if(rand(1,100) <= .cash_chance)
-	callfunc("AddCash",1);
+	callfunc("AddCash",5);
 	monster .map_name$,0,0,"--ja--",$all_mvp[rand(0,getarraysize($all_mvp) - 1)],1,strnpcinfo(3)+"::OnCashBossDead";
 	end;
 }

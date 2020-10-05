@@ -51,26 +51,26 @@
 	end;
 	
 	Cash_Boss:
-	menu " ~ ระดับ ง่ายมาก ๆ",L_Cash_Boss_01,
-	" ~ ระดับ ง่าย",L_Cash_Boss_02,
-	" ~ ระดับ ปกติ",L_Cash_Boss_03,
-	" ~ ระดับ ยาก",L_Cash_Boss_04,
-	" ~ ระดับ ยากมาก ๆ",L_Cash_Boss_05,
-	" ~ ระดับ ยากเหี้ย",L_Cash_Boss_06,
-	" ~ ระดับ ยากเหี้ย ๆ",L_Cash_Boss_07,
-	" ~ ระดับ ยากเหี้ย ๆ ๆ",L_Cash_Boss_08;
+	menu " ~ ระดับ ง่ายมาก ๆ (1 Cash/ตัว)",L_Cash_Boss_01,
+	" ~ ระดับ ง่าย (1 Cash/ตัว)",L_Cash_Boss_02,
+	" ~ ระดับ ปกติ (1 Cash/ตัว)",L_Cash_Boss_03,
+	" ~ ระดับ ยาก (1 Cash/ตัว)",L_Cash_Boss_04,
+	" ~ ระดับ ยากมาก ๆ (2 Cash/ตัว)",L_Cash_Boss_05,
+	" ~ ระดับ ยากเหี้ย (3 Cash/ตัว)",L_Cash_Boss_06,
+	" ~ ระดับ ยากเหี้ย ๆ (4 Cash/ตัว)",L_Cash_Boss_07,
+	" ~ ระดับ ยากเหี้ย ๆ ๆ (5 Cash/ตัว)",L_Cash_Boss_08;
 
 	L_Cash_Boss_01:
-	callfunc("Cash_Boss_Warper",1,20,"bossnia_01");
+	callfunc("Cash_Boss_Warper",10,20,"bossnia_01");
 	end;
 	L_Cash_Boss_02:
-	callfunc("Cash_Boss_Warper",3,40,"bossnia_02");
+	callfunc("Cash_Boss_Warper",15,40,"bossnia_02");
 	end;
 	L_Cash_Boss_03:
-	callfunc("Cash_Boss_Warper",5,60,"bossnia_03");
+	callfunc("Cash_Boss_Warper",20,60,"bossnia_03");
 	end;
 	L_Cash_Boss_04:
-	callfunc("Cash_Boss_Warper",10,80,"bossnia_04");
+	callfunc("Cash_Boss_Warper",25,80,"bossnia_04");
 	end;
 	L_Cash_Boss_05:
 	callfunc("Cash_Boss_Warper",20,100,"vis_h01");
