@@ -40,6 +40,33 @@ Body:
   - ID: 0
     Name: "Storage"
     Table: storage
+  - ID: 1
+    Name: "Storage 2"
+    Table: storage_2
+  - ID: 2
+    Name: "Storage 3"
+    Table: storage_3
+  - ID: 3
+    Name: "Storage 4"
+    Table: storage_4
+  - ID: 4
+    Name: "Storage 5"
+    Table: storage_5
+  - ID: 5
+    Name: "Storage 6"
+    Table: storage_6
+  - ID: 6
+    Name: "Storage 7"
+    Table: storage_7
+  - ID: 7
+    Name: "Storage 8"
+    Table: storage_8
+  - ID: 8
+    Name: "Storage 9"
+    Table: storage_9
+  - ID: 9
+    Name: "Storage 10"
+    Table: storage_10
 
 Footer:
   Imports:

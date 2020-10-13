@@ -18,15 +18,32 @@
 
 
 -	script	Healer	-1,{
-
+	
 	.@Price = 0;	// o ¤èÒãªé¨èÒÂµèÍ¤ÃÑé§ (0: ¿ÃÕ)
 	.@Buffs = 1;	// o ãËé Buff ËÃ×ÍäÁè? (1: ãËé / 0: äÁèãËé)
 	.@Repair = 1;	// o «èÍÁ¢Í§·Ñé§µÑÇ ËÃ×ÍäÁè? (1: ãËé / 0: äÁèãËé)
 	.@Identify = 1;	// o ÊèÍ§¢Í§·Ñé§µÑÇ ËÃ×ÍäÁè? (1: ãËé / 0: äÁèãËé)
-	.@Delay = 0;	// o ËÅÑ§¨Ò¡ Heal áÅéÇµéÍ§ÃÍ¡ÕèÇÔ¹Ò·Õ¶Ö§¨Ð¡´ä´éÍÕ¡·Õ (0: äÁèµéÍ§ÃÍ)
-
-	if (@HD > gettimetick(2))
-	end;
+	.@Delay = 2;	// o ËÅÑ§¨Ò¡ Heal áÅéÇµéÍ§ÃÍ¡ÕèÇÔ¹Ò·Õ¶Ö§¨Ð¡´ä´éÍÕ¡·Õ (0: äÁèµéÍ§ÃÍ)
+	
+	if (@HD > gettimetick(2)){
+		if(#is_cash_heal >= .max_cash_heal)
+		end;
+		else{
+			mes "µéÍ§¡ÒÃ Upgrade Buff ËÃ×ÍäÁè?";
+			.@sum_price = #is_cash_heal * .cash_price;
+			if(.@sum_price <= 0)
+			.@sum_price = .cash_price;
+			mes "ãªé " + .@sum_price + " Cash";
+			next;
+			menu "Â¡àÅÔ¡",-,"Upgrade",L_Upgrade;
+			close;
+			L_Upgrade:
+			callfunc("IsCashEnough",.@sum_price,"",1);
+			#is_cash_heal++;
+			mes "ÃÐ´Ñº Buff: " + #is_cash_heal + "/" + .max_cash_heal;
+			close;
+		}
+	}
 	if (.@Price) {
 		message strcharinfo(0), "¤èÒãªé¨èÒÂ " + callfunc("F_InsertComma",.@Price) + " Zeny";
 		if (Zeny < .@Price)
@@ -38,63 +55,79 @@
 	specialeffect2 EF_HEAL2;
 	if (.@Buffs) {
 		specialeffect2 EF_INCAGILITY;
-		sc_start SC_INCREASEAGI,240000,10;
+		sc_start SC_INCREASEAGI,1800000,10;
 		specialeffect2 EF_BLESSING;
-		sc_start SC_BLESSING,240000,10;
+		sc_start SC_BLESSING,1800000,10;
 	}
 	if(.@Repair)
 	repairall;
 	if(.@Identify)
 	identifyall;
 	percentheal 100,100;
+
+	if(#is_cash_heal>0)sc_start SC_FOOD_STR_CASH,1800000,15;
+	if(#is_cash_heal>1)sc_start SC_FOOD_VIT_CASH,1800000,15;
+	if(#is_cash_heal>2)sc_start SC_FOOD_AGI_CASH,1800000,15;
+	if(#is_cash_heal>3)sc_start SC_FOOD_INT_CASH,1800000,15;
+	if(#is_cash_heal>4)sc_start SC_FOOD_DEX_CASH,1800000,15;
+	if(#is_cash_heal>5)sc_start SC_FOOD_LUK_CASH,1800000,15;
+	if(#is_cash_heal>6)sc_start SC_FLEEFOOD,600000,30;
+	if(#is_cash_heal>7)sc_start SC_HITFOOD,600000,15;
+	if(#is_cash_heal>8)sc_start SC_CRIFOOD,600000,15;
+	if(#is_cash_heal>9)sc_start SC_ATKPOTION,600000,100;
+	if(#is_cash_heal>10)sc_start SC_MATKPOTION,600000,100;
+	
 	if (.@Delay)
 	@HD = gettimetick(2) + .@Delay;
 	end;
 	
 OnInit:
-	waitingroom "¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ",0;
+	waitingroom "¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ (¡´ÃÑÇ æ à¾×èÍ Upg.)",0;
+	
+	.cash_price = 100;
+	.max_cash_heal = 11;
+	
 	end;
 }
 
-
 // Duplicates
 //============================================================
-alberta,25,240,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#alb	10301
-aldebaran,135,118,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#alde	10301
-amatsu,200,79,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ama	10301
-ayothaya,207,169,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ayo	10301
-comodo,184,158,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#com	10301
-einbech,57,36,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#einbe	10301
-einbroch,57,202,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#einbr	10301
-geffen,115,72,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#gef	10301
-gonryun,156,122,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#gon	10301
-hugel,89,150,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#hug	10301
-izlude,121,150,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#izl	10301	//Pre-RE: (125,118)
-jawaii,250,139,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#jaw	10301
-lighthalzen,152,100,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#lhz	10301
-louyang,226,103,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#lou	10301
-manuk,272,144,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#man	10301
-mid_camp,203,289,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mid	10301
-moc_ruins,72,164,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#moc	10301
-morocc,153,97,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mor	10301
-moscovia,220,191,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mos	10301
-niflheim,212,182,5	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#nif	10301
-payon,179,106,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#pay	10301
-prontera,163,193,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#prt	10301
-rachel,125,116,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#rac	10301
-splendide,201,153,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#spl	10301
-thor_camp,249,74,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#thor	10301
-umbala,105,148,3	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#umb	10301
-veins,217,121,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ve	10301
-xmas,143,136,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#xmas	10301
-yuno,164,45,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#yuno	10301
+alberta,25,240,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#alb	10130
+aldebaran,135,118,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#alde	10130
+amatsu,200,79,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ama	10130
+ayothaya,207,169,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ayo	10130
+comodo,184,158,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#com	10130
+einbech,57,36,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#einbe	10130
+einbroch,57,202,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#einbr	10130
+geffen,115,72,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#gef	10130
+gonryun,156,122,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#gon	10130
+hugel,89,150,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#hug	10130
+izlude,121,150,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#izl	10130	//Pre-RE: (125,118)
+jawaii,250,139,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#jaw	10130
+lighthalzen,152,100,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#lhz	10130
+louyang,226,103,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#lou	10130
+manuk,272,144,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#man	10130
+mid_camp,203,289,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mid	10130
+moc_ruins,72,164,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#moc	10130
+morocc,153,97,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mor	10130
+moscovia,220,191,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mos	10130
+niflheim,212,182,5	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#nif	10130
+payon,179,106,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#pay	10130
+prontera,163,193,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#prt	10130
+rachel,125,116,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#rac	10130
+splendide,201,153,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#spl	10130
+thor_camp,249,74,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#thor	10130
+umbala,105,148,3	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#umb	10130
+veins,217,121,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ve	10130
+xmas,143,136,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#xmas	10130
+yuno,164,45,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#yuno	10130
 
 // Duplicates (Renewal)
 //============================================================
-brasilis,194,221,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#bra	10301
-dewata,195,187,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#dew	10301
-dicastes01,201,194,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#dic	10301
-ecl_in01,45,60,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ecl	10301
-malangdo,132,114,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mal	10301
-malaya,227,204,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ma	10301
-mora,55,152,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mora	10301
+brasilis,194,221,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#bra	10130
+dewata,195,187,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#dew	10130
+dicastes01,201,194,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#dic	10130
+ecl_in01,45,60,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ecl	10130
+malangdo,132,114,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mal	10130
+malaya,227,204,6	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#ma	10130
+mora,55,152,4	duplicate(Healer)	¿×é¹¿Ù¾ÅÑ§ªÕÇÔµ#mora	10130

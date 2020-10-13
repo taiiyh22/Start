@@ -1,0 +1,3 @@
+1@swat,0,0	monster	Heart Hunter Guard	3627,50,60000,300000
+1@swat,0,0	monster	Upgraded Heart Hunter	3626,10,60000,300000
+1@swat,0,0	monster	Heart Hunter Ebel	3628,5,60000,300000

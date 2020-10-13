@@ -1332,6 +1332,11 @@ uint8 pc_isequip(struct map_session_data *sd,int n)
 
 	item = sd->inventory_data[n];
 
+	//Mon - Mon classes [Start]
+	if (sd->status.class_ == JOB_GANGSI) {
+		return ITEM_EQUIP_ACK_OK;
+	}
+
 	if(pc_has_permission(sd, PC_PERM_USE_ALL_EQUIPMENT))
 		return ITEM_EQUIP_ACK_OK;
 
@@ -2871,18 +2876,18 @@ static void pc_bonus_subele(struct map_session_data* sd, unsigned char ele, shor
 
 	for (auto &it : sd->subele2) {
 		if (it.ele == ele && it.flag == flag) {
-			it.rate = cap_value(it.rate + rate, -10000, 10000);
+			it.rate = cap_value(it.rate + rate, -10000, 9900);
 			return;
 		}
 	}
 
 	struct s_addele2 entry = {};
 
-	if (rate < -10000 || rate > 10000)
-		ShowWarning("pc_bonus_subele: Item bonus rate %d exceeds -10000~10000 range, capping.\n", rate);
+	if (rate < -10000 || rate > 9900)
+		ShowWarning("pc_bonus_subele: Item bonus rate %d exceeds -10000~9900 range, capping.\n", rate);
 
 	entry.ele = ele;
-	entry.rate = cap_value(rate, -10000, 10000);
+	entry.rate = cap_value(rate, -10000, 9900);
 	entry.flag = flag;
 
 	sd->subele2.push_back(entry);
@@ -2915,18 +2920,18 @@ static void pc_bonus_subrace(struct map_session_data* sd, unsigned char race, sh
 
 	for (auto &it : sd->subrace3) {
 		if (it.race == race && it.flag == flag) {
-			it.rate = cap_value(it.rate + rate, -10000, 10000);
+			it.rate = cap_value(it.rate + rate, -10000, 9900);
 			return;
 		}
 	}
 
 	struct s_addrace2 entry = {};
 
-	if (rate < -10000 || rate > 10000)
-		ShowWarning("pc_bonus_subrace: Item bonus rate %d exceeds -10000~10000 range, capping.\n", rate);
+	if (rate < -10000 || rate > 9900)
+		ShowWarning("pc_bonus_subrace: Item bonus rate %d exceeds -10000~9900 range, capping.\n", rate);
 
 	entry.race = race;
-	entry.rate = cap_value(rate, -10000, 10000);
+	entry.rate = cap_value(rate, -10000, 9900);
 	entry.flag = flag;
 
 	sd->subrace3.push_back(entry);
@@ -3233,12 +3238,16 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 				sd->bonus.critical_def += val;
 			break;
 		case SP_NEAR_ATK_DEF:
-			if(sd->state.lr_flag != 2)
+			if (sd->state.lr_flag != 2) {
 				sd->bonus.near_attack_def_rate += val;
+				sd->bonus.near_attack_def_rate = cap_value(sd->bonus.near_attack_def_rate, 0, 99);
+			}
 			break;
 		case SP_LONG_ATK_DEF:
-			if(sd->state.lr_flag != 2)
+			if (sd->state.lr_flag != 2) {
 				sd->bonus.long_attack_def_rate += val;
+				sd->bonus.long_attack_def_rate = cap_value(sd->bonus.long_attack_def_rate, 0, 99);
+			}
 			break;
 		case SP_DOUBLE_RATE:
 			if(sd->state.lr_flag == 0 && sd->bonus.double_rate < val)
@@ -3278,12 +3287,16 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 				sd->bonus.atk_rate += val;
 			break;
 		case SP_MAGIC_ATK_DEF:
-			if(sd->state.lr_flag != 2)
+			if (sd->state.lr_flag != 2) {
 				sd->bonus.magic_def_rate += val;
+				sd->bonus.magic_def_rate = cap_value(sd->bonus.magic_def_rate, 0, 99);
+			}
 			break;
 		case SP_MISC_ATK_DEF:
-			if(sd->state.lr_flag != 2)
+			if (sd->state.lr_flag != 2) {
 				sd->bonus.misc_def_rate += val;
+				sd->bonus.misc_def_rate = cap_value(sd->bonus.misc_def_rate, 0, 99);
+			}
 			break;
 		case SP_IGNORE_MDEF_ELE:
 			PC_BONUS_CHK_ELEMENT(val,SP_IGNORE_MDEF_ELE);
@@ -3376,19 +3389,19 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 			if(sd->state.lr_flag == 2)
 				break;
 			val+= sd->special_state.no_magic_damage;
-			sd->special_state.no_magic_damage = cap_value(val,0,100);
+			sd->special_state.no_magic_damage = cap_value(val,0,99);
 			break;
 		case SP_NO_WEAPON_DAMAGE:
 			if(sd->state.lr_flag == 2)
 				break;
 			val+= sd->special_state.no_weapon_damage;
-			sd->special_state.no_weapon_damage = cap_value(val,0,100);
+			sd->special_state.no_weapon_damage = cap_value(val,0,99);
 			break;
 		case SP_NO_MISC_DAMAGE:
 			if(sd->state.lr_flag == 2)
 				break;
 			val+= sd->special_state.no_misc_damage;
-			sd->special_state.no_misc_damage = cap_value(val,0,100);
+			sd->special_state.no_misc_damage = cap_value(val,0,99);
 			break;
 		case SP_NO_GEMSTONE:
 			if(sd->state.lr_flag != 2 && sd->special_state.no_gemstone != 2)
@@ -3715,18 +3728,24 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 		break;
 	case SP_SUBELE: // bonus2 bSubEle,e,x;
 		PC_BONUS_CHK_ELEMENT(type2,SP_SUBELE);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->subele_script[type2] += val;
+			sd->subele_script[type2] = cap_value(sd->subele_script[type2], 0, 99);
+		}
 		break;
 	case SP_SUBRACE: // bonus2 bSubRace,r,x;
 		PC_BONUS_CHK_RACE(type2,SP_SUBRACE);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->subrace[type2]+=val;
+			sd->subrace[type2] = cap_value(sd->subrace[type2], 0, 99);
+		}
 		break;
 	case SP_SUBCLASS: // bonus2 bSubClass,c,x;
 		PC_BONUS_CHK_CLASS(type2,SP_SUBCLASS);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->subclass[type2]+=val;
+			sd->subclass[type2] = cap_value(sd->subclass[type2], 0, 99);
+		}
 		break;
 	case SP_ADDEFF: // bonus2 bAddEff,eff,n;
 		PC_BONUS_CHK_SC(type2,SP_ADDEFF);
@@ -3966,18 +3985,24 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 		break;
 	case SP_SUBSIZE: // bonus2 bSubSize,s,x;
 		PC_BONUS_CHK_SIZE(type2,SP_SUBSIZE);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->subsize[type2]+=val;
+			sd->subsize[type2] = cap_value(sd->subsize[type2], 0, 99);
+		}
 		break;
 	case SP_MAGIC_SUBSIZE: // bonus2 bMagicSubSize,s,x;
 		PC_BONUS_CHK_SIZE(type2,SP_MAGIC_SUBSIZE);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->magic_subsize[type2]+=val;
+			sd->magic_subsize[type2] = cap_value(sd->magic_subsize[type2], 0, 99);
+		}
 		break;
 	case SP_SUBRACE2: // bonus2 bSubRace2,mr,x;
 		PC_BONUS_CHK_RACE2(type2,SP_SUBRACE2);
-		if(sd->state.lr_flag != 2)
+		if (sd->state.lr_flag != 2) {
 			sd->subrace2[type2]+=val;
+			sd->subrace2[type2] = cap_value(sd->subrace2[type2], 0, 99);
+		}
 		break;
 	case SP_ADD_ITEM_HEAL_RATE: // bonus2 bAddItemHealRate,iid,n;
 		if(sd->state.lr_flag == 2)
@@ -4208,6 +4233,7 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 	case SP_SUBDEF_ELE: // bonus2 bSubDefEle,e,x;
 		PC_BONUS_CHK_ELEMENT(type2,SP_SUBDEF_ELE);
 		sd->subdefele[type2] += val;
+		sd->subdefele[type2] = cap_value(sd->subdefele[type2], 0, 99);
 		break;
 	case SP_COMA_CLASS: // bonus2 bComaClass,c,n;
 		PC_BONUS_CHK_CLASS(type2,SP_COMA_CLASS);
@@ -4242,6 +4268,7 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 	case SP_MAGIC_SUBDEF_ELE: // bonus2 bMagicSubDefEle,e,x;
 		PC_BONUS_CHK_ELEMENT(type2, SP_MAGIC_SUBDEF_ELE);
 		sd->magic_subdefele[type2] += val;
+		sd->magic_subdefele[type2] = cap_value(sd->magic_subdefele[type2], 0, 99);
 		break;
 	default:
 		if (current_equip_combo_pos > 0) {
@@ -7050,6 +7077,8 @@ int pc_checkbaselevelup(struct map_session_data *sd) {
 	if (!next || sd->status.base_exp < next || pc_is_maxbaselv(sd))
 		return 0;
 
+	uint32 base_level = sd->status.base_level;
+
 	do {
 		sd->status.base_exp -= next;
 		//Kyoki pointed out that the max overcarry exp is the exp needed for the previous level -1. [Skotlex]
@@ -7093,8 +7122,10 @@ int pc_checkbaselevelup(struct map_session_data *sd) {
 		party_send_levelup(sd);
 
 	pc_baselevelchanged(sd);
-	achievement_update_objective(sd, AG_GOAL_LEVEL, 1, sd->status.base_level);
-	achievement_update_objective(sd, AG_GOAL_STATUS, 2, sd->status.base_level, sd->status.class_);
+	for (; base_level <= sd->status.base_level; base_level++) {
+		achievement_update_objective(sd, AG_GOAL_LEVEL, 1, base_level);
+		achievement_update_objective(sd, AG_GOAL_STATUS, 2, base_level, sd->status.class_);
+	}
 	return 1;
 }
 
@@ -7116,6 +7147,8 @@ int pc_checkjoblevelup(struct map_session_data *sd)
 	nullpo_ret(sd);
 	if(!next || sd->status.job_exp < next || pc_is_maxjoblv(sd))
 		return 0;
+
+	uint32 job_level = sd->status.job_level;
 
 	do {
 		sd->status.job_exp -= next;
@@ -7142,7 +7175,8 @@ int pc_checkjoblevelup(struct map_session_data *sd)
 		clif_status_change(&sd->bl, EFST_DEVIL1, 1, 0, 0, 0, 1); //Permanent blind effect from SG_DEVIL.
 
 	npc_script_event(sd, NPCE_JOBLVUP);
-	achievement_update_objective(sd, AG_GOAL_LEVEL, 1, sd->status.job_level);
+	for (; job_level <= sd->status.job_level; job_level++)
+		achievement_update_objective(sd, AG_GOAL_LEVEL, 1, job_level);
 
 	pc_show_questinfo(sd);
 	return 1;
@@ -9293,8 +9327,9 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 	}
 
 	if( (sd->class_&MAPID_UPPERMASK) == MAPID_STAR_GLADIATOR && (b_class&MAPID_UPPERMASK) != MAPID_STAR_GLADIATOR) {
-		/* going off star glad lineage, reset feel to not store no-longer-used vars in the database */
+		/* going off star glad lineage, reset feel and hate to not store no-longer-used vars in the database */
 		pc_resetfeel(sd);
+		pc_resethate(sd);
 	}
 
 	// Reset body style to 0 before changing job to avoid
@@ -9559,14 +9594,12 @@ void pc_setoption(struct map_session_data *sd,int type)
 	}
 	if( (sd->class_&MAPID_THIRDMASK) == MAPID_MECHANIC ) {
 		if( type&OPTION_MADOGEAR && !(p_type&OPTION_MADOGEAR) ) {
-			static const sc_type statuses [] = { SC_MAXIMIZEPOWER, SC_OVERTHRUST, SC_WEAPONPERFECTION, SC_ADRENALINE, SC_CARTBOOST, SC_MELTDOWN, SC_MAXOVERTHRUST };
-
 			status_calc_pc(sd,SCO_NONE);
-			for (uint8 i = 0; i < ARRAYLENGTH(statuses); i++) {
-				int skill_id = status_sc2skill(statuses[i]);
+			for (const auto &sc : mado_statuses) {
+				uint16 skill_id = status_sc2skill(sc);
 
 				if (skill_id > 0 && !skill_get_inf2(skill_id, INF2_ALLOWONMADO))
-					status_change_end(&sd->bl,statuses[i],INVALID_TIMER);
+					status_change_end(&sd->bl,sc,INVALID_TIMER);
 			}
 			pc_bonus_script_clear(sd,BSF_REM_ON_MADOGEAR);
 

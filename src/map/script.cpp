@@ -12153,6 +12153,32 @@ BUILDIN_FUNC(resetskill)
 }
 
 /**
+ * Reset SG designated maps
+ * resetfeel({<char_id>});
+ **/
+BUILDIN_FUNC(resetfeel)
+{
+	TBL_PC *sd;
+	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_UPPERMASK) != MAPID_STAR_GLADIATOR)
+		return SCRIPT_CMD_FAILURE;
+	pc_resetfeel(sd);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
+ * Reset SG designated monsters
+ * resethate({<char_id>});
+ **/
+BUILDIN_FUNC(resethate)
+{
+	TBL_PC *sd;
+	if (!script_charid2sd(2,sd) || (sd->class_&MAPID_UPPERMASK) != MAPID_STAR_GLADIATOR)
+		return SCRIPT_CMD_FAILURE;
+	pc_resethate(sd);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
  * Counts total amount of skill points.
  * skillpointcount({<char_id>})
  **/
@@ -14147,6 +14173,7 @@ BUILDIN_FUNC(getinventorylist)
 				pc_setreg(sd,reference_uid(add_str(randopt_var), j),sd->inventory.u.items_inventory[i].option[k].param);
 			}
 			pc_setreg(sd,reference_uid(add_str("@inventorylist_tradable"), j),pc_can_trade_item(sd, i));
+			pc_setreg(sd,reference_uid(add_str("@inventorylist_fav"), j), sd->inventory.u.items_inventory[i].favorite); // r o f i - One Click Sell [Start]
 			j++;
 		}
 	}
@@ -19941,6 +19968,11 @@ BUILDIN_FUNC(waitingroom2bg_single)
 		x = bg->cemetery.x;
 		y = bg->cemetery.y;
 	}
+	if (!map_getmapflag(map_mapindex2mapid(mapindex), MF_BATTLEGROUND)) {
+		ShowWarning("buildin_waitingroom2bg_single: Map %s requires the mapflag MF_BATTLEGROUND.\n", mapindex_id2name(mapindex));
+		script_pushint(st, false);
+		return SCRIPT_CMD_FAILURE;
+	}
 
 	nd = npc_name2id(script_getstr(st,6));
 
@@ -20023,6 +20055,11 @@ BUILDIN_FUNC(bg_join) {
 	}
 
 	if (!script_charid2sd(6, sd)) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_FAILURE;
+	}
+	if (!map_getmapflag(map_mapindex2mapid(mapindex), MF_BATTLEGROUND)) {
+		ShowWarning("buildin_bg_join: Map %s requires the mapflag MF_BATTLEGROUND.\n", mapindex_id2name(mapindex));
 		script_pushint(st, false);
 		return SCRIPT_CMD_FAILURE;
 	}
@@ -25107,6 +25144,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(resetlvl,"i?"),
 	BUILDIN_DEF(resetstatus,"?"),
 	BUILDIN_DEF(resetskill,"?"),
+	BUILDIN_DEF(resetfeel,"?"),
+	BUILDIN_DEF(resethate,"?"),
 	BUILDIN_DEF(skillpointcount,"?"),
 	BUILDIN_DEF(changebase,"i?"),
 	BUILDIN_DEF(changesex,"?"),

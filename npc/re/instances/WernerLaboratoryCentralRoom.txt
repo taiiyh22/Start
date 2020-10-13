@@ -1,0 +1,2 @@
+1@slw,0,0	monster	Special Guard	3622,100,60000,300000
+1@slw,0,0	monster	Pet child	3621, 1,60000,300000

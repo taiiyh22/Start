@@ -1394,6 +1394,11 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_USE_SKILL_SP_SPA] = EFST_USE_SKILL_SP_SPA;
 	StatusIconChangeTable[SC_USE_SKILL_SP_SHA] = EFST_USE_SKILL_SP_SHA;
 
+	// ep16.2
+	StatusIconChangeTable[SC_EP16_2_BUFF_SS] = EFST_EP16_2_BUFF_SS;
+	StatusIconChangeTable[SC_EP16_2_BUFF_SC] = EFST_EP16_2_BUFF_SC;
+	StatusIconChangeTable[SC_EP16_2_BUFF_AC] = EFST_EP16_2_BUFF_AC;
+
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
 	StatusChangeFlagTable[SC_ASPDPOTION1] |= SCB_ASPD;
@@ -1569,6 +1574,11 @@ void initChangeTables(void)
 	StatusChangeFlagTable[SC_ANCILLA] |= SCB_REGEN;
 	StatusChangeFlagTable[SC_ENSEMBLEFATIGUE] |= SCB_SPEED|SCB_ASPD;
 	StatusChangeFlagTable[SC_MISTY_FROST] |= SCB_NONE;
+
+	// ep16.2
+	StatusChangeFlagTable[SC_EP16_2_BUFF_SS] |= SCB_ASPD;
+	StatusChangeFlagTable[SC_EP16_2_BUFF_SC] |= SCB_CRI;
+	StatusChangeFlagTable[SC_EP16_2_BUFF_AC] |= SCB_NONE;
 
 #ifdef RENEWAL
 	// renewal EDP increases your weapon atk
@@ -6780,6 +6790,8 @@ static signed short status_calc_critical(struct block_list *bl, struct status_ch
 
 	if (sc->data[SC_INCCRI])
 		critical += sc->data[SC_INCCRI]->val2;
+	if (sc->data[SC_EP16_2_BUFF_SC])
+		critical += 300;// crit +30
 	if (sc->data[SC_CRIFOOD])
 		critical += sc->data[SC_CRIFOOD]->val1;
 	if (sc->data[SC_EXPLOSIONSPIRITS])
@@ -7655,6 +7667,8 @@ static short status_calc_fix_aspd(struct block_list *bl, struct status_change *s
 		aspd -= 10 * sc->data[SC_SOULSHADOW]->val2;
 	if (sc->data[SC_HEAT_BARREL])
 		aspd -= sc->data[SC_HEAT_BARREL]->val1 * 10;
+	if (sc->data[SC_EP16_2_BUFF_SS])
+		aspd -= 100; // +10 ASPD
 
 	return cap_value(aspd, 0, 2000); // Will be recap for proper bl anyway
 }
@@ -9210,6 +9224,19 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		}
 	}
 
+	// Statuses from Merchant family skills that can be blocked while using Madogear; see pc.cpp::pc_setoption for cancellation
+	if (sc->option & OPTION_MADOGEAR) {
+		for (const auto &madosc : mado_statuses) {
+			if (type != madosc)
+				continue;
+
+			uint16 skill_id = status_sc2skill(type);
+
+			if (skill_id > 0 && !skill_get_inf2(skill_id, INF2_ALLOWONMADO))
+				return 0;
+		}
+	}
+
 	// Adjust tick according to status resistances
 	if( !(flag&(SCSTART_NOAVOID|SCSTART_LOADED)) ) {
 		duration = status_get_sc_def(src, bl, type, rate, duration, flag);
@@ -9328,21 +9355,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_OVERTHRUST:
 		if (sc->data[SC_MAXOVERTHRUST])
 			return 0; // Overthrust can't take effect if under Max Overthrust. [Skotlex]
-	case SC_MAXOVERTHRUST:
-		if( sc->option&OPTION_MADOGEAR )
-			return 0; // Overthrust and Overthrust Max cannot be used on Mado Gear [Ind]
 	break;
 	case SC_ADRENALINE:
-		if (sc->data[SC_QUAGMIRE] ||
-			sc->data[SC_DECREASEAGI] ||
-			sc->option&OPTION_MADOGEAR // Adrenaline doesn't affect Mado Gear [Ind]
-		)
-			return 0;
-	break;
 	case SC_ADRENALINE2:
-		if (sc->data[SC_QUAGMIRE] ||
-			sc->data[SC_DECREASEAGI]
-		)
+		if (sc->data[SC_QUAGMIRE] || sc->data[SC_DECREASEAGI])
 			return 0;
 	break;
 	case SC_MAGNIFICAT:
@@ -9359,10 +9375,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_SPEARQUICKEN:
 	case SC_TRUESIGHT:
 	case SC_WINDWALK:
-	case SC_CARTBOOST:
 	case SC_ASSNCROS:
 		if (sc->option&OPTION_MADOGEAR)
-			return 0; // Mado is immune to Wind Walk, Cart Boost, etc (others above) [Ind]
+			return 0; // Mado is immune to the above [Ind]
+	case SC_CARTBOOST:
 		if (sc->data[SC_QUAGMIRE])
 			return 0;
 	break;
@@ -11549,8 +11565,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick_time = 5000; // [GodLesZ] tick time
 			break;
 		case SC_MAGNETICFIELD:
-			val3 = tick / 1000;
 			tick_time = 1000; // [GodLesZ] tick time
+			val4 = tick / tick_time;
 			break;
 		case SC_INSPIRATION:
 			val2 = (sd?sd->status.job_level:50);
@@ -14495,14 +14511,17 @@ TIMER_FUNC(status_change_timer){
 		break;
 
 	case SC_MAGNETICFIELD:
-		if (--(sce->val3) >= 0) {
+		if (--(sce->val4) >= 0) {
 			struct block_list *src = map_id2bl(sce->val2);
 
 			if (!src || (src && (status_isdead(src) || src->m != bl->m)))
 				break;
+			map_freeblock_lock();
 			if (!status_charge(bl, 0, 50))
 				status_zap(bl, 0, status->sp);
-			sc_timer_next(1000 + tick);
+			if (sc->data[type])
+				sc_timer_next(1000 + tick);
+			map_freeblock_unlock();
 			return 0;
 		}
 		break;
@@ -15053,6 +15072,9 @@ void status_change_clear_buffs(struct block_list* bl, uint8 type)
 			case SC_REUSE_LIMIT_LUXANIMA:
 			case SC_LUXANIMA:
 			case SC_SOULENERGY:
+			case SC_EP16_2_BUFF_SS:
+			case SC_EP16_2_BUFF_SC:
+			case SC_EP16_2_BUFF_AC:
 			// Clans
 			case SC_CLAN_INFO:
 			case SC_SWORDCLAN:

@@ -19,7 +19,7 @@
 //Translated & Modified by Start (Discord ID: Start#1356)
 
 
-prontera,153,193,6	script	เปลี่ยนอาชีพ	10304,{
+prontera,153,193,6	script	เปลี่ยนอาชีพ	10349,{
 	function Get_Job_Equip;
 	// Checks if the Player has the required level.
 	// closes if not, returns if yes

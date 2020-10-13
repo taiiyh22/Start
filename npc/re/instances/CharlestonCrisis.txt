@@ -1,0 +1,99 @@
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Lockstep	3126,1,60000,300000
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	C-TYPE	3128,4,60000,300000
+1@mcd,0,0	monster	H-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	A-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	L-TYPE	3128,4,60000,300000
+1@mcd,0,0	monster	N-TYPE	3126,1,60000,300000
+1@mcd,0,0	monster	S-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	S-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	S-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	S-TYPE	3128,3,60000,300000
+1@mcd,0,0	monster	C-TYPE	3128,4,60000,300000
+1@mcd,0,0	monster	C-TYPE	3128,4,60000,300000
+1@mcd,0,0	monster	C-TYPE	3128,5,60000,300000
+1@mcd,0,0	monster	N-TYPE	3127,3,60000,300000
+1@mcd,0,0	monster	Charleston 3	3124,1,60000,300000
+1@mcd,0,0	monster	A-TYPE	3128,1,60000,300000
+1@mcd,0,0	monster	A-TYPE	3128,1,60000,300000
+1@mcd,0,0	monster	A-TYPE	3128,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	Bomb	3161,1,60000,300000
+1@mcd,0,0	monster	2nd Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	3rd Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	4th Security Robot	3127,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,8,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,10,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,8,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,2,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,5,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,8,60000,300000
+1@mcd,0,0	monster	Security robot	3128,4,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,1,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,3,60000,300000
+1@mcd,0,0	monster	Security robot	3128,10,60000,300000
+1@mcd,0,0	monster	Security robot	3128,4,60000,300000
+1@mcd,0,0	monster	Security robot	3128,4,60000,300000
+1@mcd,0,0	monster	STEP	3125,100,60000,300000
+1@mcd,0,0	monster	KICK AND KICK	3128,20,60000,300000

@@ -29,6 +29,7 @@ function	script	MyCash	{
 }
 
 function	script	AddCash	{
+	specialeffect2 100;
 	.@cash = getarg(0,0);
 	#CASHPOINTS += .@cash;
 	callfunc("MyCash",1);
@@ -36,6 +37,7 @@ function	script	AddCash	{
 }
 
 function	script	UseCash	{
+	specialeffect2 100;
 	.@cash = getarg(0,0);
 	#CASHPOINTS -= .@cash;
 	callfunc("MyCash");
